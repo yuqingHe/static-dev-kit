@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+/* sass entrance
+----------------------
+# Author：Daniel Chan
+# Time：9th,July,2016
+# Email：cty8998@163.com
+# Notes：divide scss into several parts ，Reduce redundant.
+---------------------- */
+
+//helpers
+@import "helpers/variables";
+@import "helpers/functions";
+@import "helpers/mixins";
+
+// //base
+@import "base/reset";
+@import "base/utils";
+
+//components
+//=============================
+// @import "componets/icons";
+// @import "componets/button";
+// @import "componets/radio";
+// @import "componets/mask";
+// @import "componets/popup";
+// @import "componets/toggle";
+// @import "componets/chart";
+//==============================
+
+//layout
+//==============================
+// @import "layout/header";
+// @import "layout/main";
+// @import "layout/footer";
+// @import "layout/list";
+// @import "layout/table";
+// @import "layout/grids";
+//==============================
+
+//pages
+//===============================
+// @import "pages/course_detail";
+//===============================

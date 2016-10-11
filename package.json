@@ -1,0 +1,22 @@
+{
+  "name": "In-time-statistics-dev-workflow",
+  "version": "1.0.0",
+  "description": "enjoy writing code",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "eslint": "latest",
+    "grunt": "latest",
+    "grunt-browser-sync": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-sass": "latest",
+    "grunt-postcss": "latest",
+    "chokidar": "latest"
+  },
+  "scripts": {
+    "test": "browser-sync start --server --files \"**/*.css, **/*.html\""
+  },
+  "author": "daniel",
+  "license": "MIT"
+}

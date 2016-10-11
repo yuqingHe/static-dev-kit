@@ -1,0 +1,6 @@
+
+    
+// pixels to rems 
+@function temSize($px) {
+  @return ceil($px*10000 / $baseFontSize)/10000 * 1rem;
+}

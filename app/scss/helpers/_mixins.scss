@@ -1,0 +1,11 @@
+
+
+
+/*背景-100%填充*/
+@mixin background100($url) {background-image: url($url);-webkit-background-size: 100% 100%;background-size: 100% 100%;background-repeat: no-repeat;}
+
+/*定位-绝对定位居中*/
+@mixin absoluteCenter($direction: default) { /*默认垂直水平居中*/@if $direction == center { /* 水平居中*/left: 50%;-webkit-transform: translateX(-50%);transform: translateX(-50%);}@else if $direction == vertical-center { /*垂直居中 */top: 50%;-webkit-transform: translateY(-50%);transform: translateY(-50%);}@else {top: 50%;left: 50%;-webkit-transform: translate(-50%,-50%);transform: translate(-50%,-50%);}}
+
+//遮罩
+@mixin mask-black($opacity:70){position:absolute;z-index: 110;left:0;right:0;top:0;bottom:0;background:rgba(0,0,0,$opacity/100);overflow: hidden;}
