@@ -1,11 +1,4 @@
 @charset "UTF-8";
-/* sass entrance
-----------------------
-# Author：Daniel Chan
-# Time：9th,July,2016
-# Email：cty8998@163.com
-# Notes：divide scss into several parts ，Reduce redundant.
----------------------- */
 /*背景-100%填充*/
 /*定位-绝对定位居中*/
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
@@ -462,3 +455,52 @@ template {
   display: table;
   clear: both;
   content: ''; }
+
+.top {
+  background-color: #005F8F;
+  height: 200px;
+  color: white; }
+
+.left {
+  position: absolute;
+  left: 5px;
+  top: 10px; }
+
+.right {
+  position: absolute;
+  right: 5px;
+  top: 10px; }
+  .right .more {
+    background-color: #398BFB; }
+  .right .more:hover .list {
+    display: block; }
+  .right .list {
+    position: fixed;
+    display: none;
+    right: 10px;
+    top: 20px; }
+
+.atag {
+  display: inline-block;
+  text-decoration: underline;
+  margin: 10px, 10px;
+  color: white; }
+
+.searzone {
+  background-color: #BDC1AA;
+  width: 800px;
+  left: 50%;
+  margin: 20px auto; }
+  .searzone .searchinput {
+    margin: 30px -1px 30px 190px;
+    display: inline-block; }
+    .searzone .searchinput input {
+      width: 300px;
+      height: 40px; }
+  .searzone .searchBtn {
+    background-color: #B7B7B7;
+    height: 40px;
+    padding: 13px;
+    width: 80px;
+    border: 1px solid;
+    margin-left: -14px; }

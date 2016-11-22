@@ -1,12 +1,5 @@
 @charset "UTF-8";
 
-/* sass entrance
-----------------------
-# Author：Daniel Chan
-# Time：9th,July,2016
-# Email：cty8998@163.com
-# Notes：divide scss into several parts ，Reduce redundant.
----------------------- */
 
 //helpers
 @import "helpers/variables";
@@ -16,6 +9,8 @@
 // //base
 @import "base/reset";
 @import "base/utils";
+
+@import "baidu/base";
 
 //components
 //=============================

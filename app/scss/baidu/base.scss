@@ -1,0 +1,59 @@
+.top {
+    background-color: #005F8F;
+    height: 200px;
+    color: white;
+}
+
+.left {
+    position: absolute;
+    left: 5px;
+    top: 10px;
+}
+
+.right {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    .more {
+        background-color: #398BFB;
+    }
+    .more:hover .list {
+        display: block;
+    }
+    .list {
+        position: fixed;
+        display: none;
+        right: 10px;
+        top: 20px;
+    }
+}
+
+.atag {
+    display: inline-block;
+    text-decoration: underline;
+    margin: 10px, 10px;
+    color: white;
+}
+
+.searzone {
+    background-color: #BDC1AA;
+    width: 800px;
+    left: 50%;
+    margin: 20px auto;
+    .searchinput {
+        margin: 30px -1px 30px 190px;
+        display: inline-block;
+        input {
+            width: 300px;
+            height: 40px;
+        }
+    }
+    .searchBtn {
+        background-color: #B7B7B7;
+        height: 40px;
+        padding: 13px;
+        width: 80px;
+         border: 1px solid;
+         margin-left: -14px;
+    }
+}
