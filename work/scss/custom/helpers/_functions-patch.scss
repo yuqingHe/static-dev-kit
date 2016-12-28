@@ -1,0 +1,7 @@
+
+
+// by 周慧娟
+$tem-edit-num:.8;
+@function temSize_edit($num) {@return ceil($num /40  * $tem-edit-num*100)/100*1rem;}
+// px to rem */
+@function temSize($num) {@return ceil($num /40*100)/100*1rem;}

@@ -1,0 +1,75 @@
+<ion-view class=" consultbookbg ">
+	<div class="nav-top-tabs" ng-if="!showBannerNone">
+		<div class="nav-tab mar-lr-20" ng-class="{'mar-lr-40':!authManager}" ng-click="goAllList()">咨询</div>
+		<div class="nav-tab mar-lr-20" ng-class="{'mar-lr-40':!authManager}" ng-click="goSchedule()">任务</div>
+		<div class="nav-tab mar-lr-20 active-blue" ng-class="{'mar-lr-40':!authManager}" ng-click="">业绩</div>
+		<div class="nav-tab mar-lr-20" ng-show="authManager" ng-click="goChannel()">渠道</div>
+	</div>
+	<ion-content ng-class="{'achieve-content':showFooterTab}" style="top: 2rem;" has-bouncing="false">
+		<!--顶部容器-->
+		<div class="non" style="background-color:#fff;">
+			<div class="achieve-header-container">
+				<div class="date-container" style="margin: 0 auto">
+					<span class="data-classfy day" ng-class="{'current':isShowDay}" ng-click="changeTab('day')">本日</span><span class="data-classfy week"
+									ng-click="changeTab('week')" ng-class="{'current':isShowWeek}">本周</span><span class="month data-classfy" ng-click="changeTab('month')"
+									ng-class="{'current':isShowMonth}">本月</span>
+				</div>
+				<div class="num-container">
+					<div class="num-container-left">
+						<div class="achieve-text">成交量(人)</div>
+						<div class="achieve-num">{{data.dealNum}}</div>
+					</div>
+
+					<div class="num-container-right">
+						<div class="achieve-text">成交额(元)</div>
+						<div class="achieve-num"><em class="money">¥</em>{{data.dealAmount}}</div>
+					</div>
+					<div class="num-container-middle"></div>
+				</div>
+			</div>
+			<div class="non" style="background-color:#fff;"></div>
+			<div class="funnel-plot-container">
+				<div class="funnel-wrap">
+					<div class="funnel-num-wrap">
+						<div class="funnel-num-text">全部咨询</div><span>{{data.consult.all}} 人</span></div>
+					<div class="funnel-num-wrap">
+						<div class="funnel-num-text">待跟进</div><span>{{data.consult.BeUp}} 人</span></div>
+					<div class="funnel-num-wrap">
+						<div class="funnel-num-text">跟进中</div><span>{{data.consult.FollowingUp}} 人</span></div>
+					<div class="funnel-num-wrap">
+						<div class="funnel-num-text">已到访</div><span>{{data.consult.Visited}} 人</span></div>
+					<div class="funnel-num-wrap">
+						<div class="funnel-num-text">已成交</div><span>{{data.consult.DealDone}} 人</span></div>
+				</div>
+
+				<div class="sales-data-wrap">
+					<div class="sales-percent-map">
+						<p class="sales-map-des">成交率（已成交 ÷ 全部咨询）</p>
+						<div class="sales-map-outer">
+							<div class="sales-map-inner " ng-style="{width:data.consult.dealpercent+'%'}"></div>
+						</div>
+					</div>
+					<span class="sales-percent-text">{{data.consult.dealpercent}}%</span>
+				</div>
+				<div class="sales-data-wrap">
+					<div class="sales-percent-map">
+						<p class="sales-map-des">流失率（已失效 ÷ 全部咨询）</p>
+						<div class="sales-map-outer">
+							<div class="sales-map-inner" ng-style="{width:data.consult.losingpercent+'%'}"></div>
+						</div>
+					</div>
+					<span class="sales-percent-text">{{data.consult.losingpercent}}%</span>
+				</div>
+				<div class="funnel-plot-info">
+					<i></i><em>数据来源：跟进日期为本日/本周/本月</em>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+	<ion-footer-bar  class="bar bar-footer footer_book new_tabs ng-hide" ng-show="showFooterTab">
+		<a class="new_tab_item" ng-click="goMyScenes()"><i class="footerbook_icon1"></i><span class="footerbook_text">我的场景</span></a>
+		<a class="new_tab_item" ng-click="goMicroShop()"><i class="micro-shop-ico"></i><span class="footerbook_text">我的微店</span></a>
+		<a class="new_tab_item active"><i class="footerbook_icon2"></i><span class="footerbook_text">咨询本</span></a>
+		<a class="new_tab_item" ng-click="goUserCenter()"><i class="footerbook_icon3"></i><span class="footerbook_text">用户中心</span></a>
+	</ion-footer-bar>
+</ion-view>

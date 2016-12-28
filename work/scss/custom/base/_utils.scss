@@ -1,0 +1,25 @@
+/*******************
+*name：组件类(util)
+*description:提供一些便捷写法,以自己名字简写来标注命名空间，方便后期整合
+*authoer:tianyu.chen
+*email:tianyu.chen@xiaobao100.com | cty8998@163.com
+*
+********************/
+
+/*文字超出省略*/
+.ell {text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+
+/*盒模型*/
+.wh-100 {width: 100%;height: 100%;}
+
+/*黑色遮罩*/
+.mask-black {@include mask-black(70);}
+/* 浮动*/
+.fl {float: left;}
+.fr {float: right;}
+
+/*多行文本水平垂直居中*/
+.tabl {display: table;width: 100%;
+    & .tabl-center{display: table-cell;text-align: center;vertical-align: middle;}
+}
+

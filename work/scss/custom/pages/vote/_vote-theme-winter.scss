@@ -1,0 +1,650 @@
+/**
+* name:冬招模板（投票模板）
+* Arthur：tianyu.chen
+* description:
+* time:2016年11月15日16:38:00
+**/
+
+/*预览页不缩放*/
+$rate:1;
+
+/*.microactivity-vote.vote-winter { 开始*/
+.microactivity-vote.vote-winter{
+
+/*{ 编辑页第一页 开始*/
+    .fullheight{
+        $rate:0.8;/*编辑页以0.8的比率缩放*/
+        .step1 .vote_winter_header_bg{height:temSize(394,$rate)!important;padding-top: temSize(144,$rate);}
+        .step1 .vote_name_winter{font-size:temSize(30,$rate);min-width:temSize(234,$rate);}
+        .step1 .vote_title_winter{margin-top:temSize(20,$rate);width:temSize(317,$rate);height: temSize(70,$rate);line-height: temSize(70,$rate);font-size:temSize(24,$rate);}
+        .step1 .vote_timeLine_wrap{width:temSize(640,$rate);height: temSize(86,$rate);margin-top:temSize(42,$rate);}
+        .step1 .vote_timeLine{width:temSize(629,$rate);height:temSize(56,$rate);line-height: temSize(56,$rate);font-size: temSize(28,$rate);}
+        .step1 .vote_timeLine_text{font-size:temSize(26, $rate);width:temSize(416, $rate);margin-left:temSize(80,$rate);}
+        .step1 .vote_activity_detail{ right: temSize(30,$rate);width: temSize(80,$rate);height: temSize(80,$rate);line-height: temSize(80,$rate);font-size: temSize(24,$rate);}
+        .step1 .vote_activity_detail_text{margin-right: temSize(3,$rate);}
+        .step1 .vote_activity_detail_arrow{width:temSize(8,$rate); height: temSize(19,$rate);}
+        .step1 .vote_person_box{padding-top:temSize(16,$rate);}
+        .step1 .vote2_crown_no1,
+        .step1 .vote2_crown_no2,
+        .step1 .vote2_crown_no3{width: temSize(71,$rate);height: temSize(85,$rate);margin-left: temSize(-12,$rate);margin-top: temSize(-16,$rate);}
+        .step1 .vote_index,
+        .step1 .vote_myParticipate,
+        .step1 .vote_participate{width:temSize(226,$rate);height:temSize(66,$rate);font-size: temSize(30,$rate);border-radius: temSize(7,$rate);}
+        .step1 .vote_index,
+        .step1 .vote_index{line-height: temSize(62,$rate);}
+        .step1 .vote_participate,
+        .step1 .vote_myParticipate{line-height: temSize(66,$rate);}
+        .step1 .voter-list-box .person-box{margin:0 temSize(30,$rate);}
+        .step1 .voter-list-box .person-box .vote_person_item{width:temSize(278,$rate);height: temSize(380,$rate);padding-top:temSize(20,$rate);}
+        .step1 .voter-list-box .person-box li .avator{width:temSize(230,$rate);height: temSize(270,$rate);}
+        .step1 .voter-list-box .person-box .votegroup-btn{width: temSize(226,$rate);height: temSize(72,$rate);}
+        .step1 .bottom_btn .vote-btn-half{line-height: temSize(98,$rate);}
+    }/*}编辑页第一页 结束*/
+
+
+    /*========== 编辑页第二页 vote2by2 + 编辑页第三页 vote2by3==============*/
+    &.vote_edit_bg{background:#ebca9e;}
+    .vote_edit{
+        $rate:0.8;
+        margin-top:temSize(120, $rate);
+        width:temSize(540, $rate);
+        height:temSize(746, $rate);
+        border-color:#ffad0b;
+        border-radius:temSize(8);
+        background:url("../img/vote2_bg_block.jpg")repeat;
+        .vote_bg{
+            position:relative;
+            background:none;
+            color:#ffad0b;
+            font-size: temSize(24, $rate);
+        }
+        .vote_edit_box1{padding: temSize(33, $rate);}
+        .vote_edit_box1 .title1,
+        .vote_edit_box1 .title2{
+            position:absolute;
+            @include absoluteCenter(center);
+            width:temSize(426, $rate);
+            height:temSize(68, $rate);
+            top:0;
+            margin-top:temSize(-76, $rate); 
+        }
+        .vote_edit_box1 .title1{@include background100("../img/vote2_activity_title.png");}
+        .vote_edit_box1 .title2{@include background100("../img/vote2_activity_troduce.png");}
+        .vote_input_detail .title{text-indent: temSize(16, $rate);}
+        .vote_input_detail .description{border-color:#fff;border-radius:temSize(8);}
+        .vote_input_detail .description.deadline{min-width:temSize(244, $rate);vertical-align: text-bottom;}
+        .vote_input_detail:nth-of-type(3) .description,
+        .vote_input_detail:nth-of-type(4) .description{width:100%}
+        .vote_input_detail .description.rule{width:100%}
+        .vote_input_detail.address_detail{margin-bottom:temSize(15, $rate)};
+    }/*vote_edit结束}*/
+    
+
+
+
+    /*========== 首页 vote2by1-step1 ==============*/
+    .vote_winter_bg{
+        background:url("../img/vote2_bg_block.jpg")repeat;
+    }
+    .step1 .vote_winter_header_bg{
+        -webkit-flex-shrink: 0;
+            -ms-flex-negative: 0;
+                flex-shrink: 0;
+        @include background100("../img/vote2_bg_header.jpg");
+        padding-top: temSize(144,$rate);
+        font-size:0;
+        line-height: 1;
+        width:100%;
+        height:temSize(394,$rate)!important;
+    }
+    .step1 .vote_name_winter{
+        display: inline-block;
+        margin:0 auto;
+        font-size:temSize(30,$rate);
+        color:#ce161a;
+    }
+    .step1 .vote_title_winter{
+        margin:0 auto;
+        margin-top:temSize(20,$rate);
+        width:temSize(317,$rate);
+        height: temSize(70,$rate);
+        line-height: temSize(70,$rate);
+        font-size:temSize(24,$rate);
+        color:#ffd800;
+        background-image: url("../img/vote2_name.png");
+        background-size:100% 100%;
+    }
+    .step1 .vote_timeLine_wrap{
+        width:temSize(640,$rate);
+        margin:0 auto;
+        height: temSize(86,$rate);
+        margin-top:temSize(42,$rate);
+        position:relative;
+        color:#c33625;
+    }
+    .vote_timeLine,
+    .vote_activity_detail{
+        position:absolute;
+    }
+    .step1 .vote_timeLine{
+        width:temSize(629,$rate);
+        height:temSize(56,$rate);
+        line-height: temSize(56,$rate);
+        font-size: temSize(28,$rate);
+        @include background100('../img/vote2_otherInfoBar.png');
+        @include absoluteCenter;
+    }
+    .step1 .vote_timeLine_text{
+        display: block;
+        font-size:temSize(26, $rate);
+        text-align: center;
+        width:temSize(416, $rate);
+        margin-left:temSize(80,$rate);
+        }
+    .step1 .vote_activity_detail,
+    .vote_activity_detail{
+        right: temSize(30,$rate);
+        width: temSize(80,$rate);
+        height: temSize(80,$rate);
+        line-height: temSize(80,$rate);
+        font-size: temSize(24,$rate);
+        background: #d2a759;
+        border-radius: 100%;
+        text-align: center;
+    }
+    .vote_activity_detail_text,
+    .vote_activity_detail_arrow{
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .step1 .vote_activity_detail_text,
+    .vote_activity_detail_text{
+        line-height: 1;
+        margin-right: temSize(3,$rate);
+    }
+    .step1 .vote_activity_detail_arrow,
+    .vote_activity_detail_arrow{
+        vertical-align: middle;
+        width:temSize(8,$rate);
+        height: temSize(19,$rate);
+        @include background100("../img/vote2_activity_arrow.png");
+    }
+
+    /*参赛人员列表*/
+    .step1 .vote_person_box{
+        -webkit-box-flex:1;
+        -webkit-flex:1;
+            -ms-flex:1;
+                flex:1;
+        padding-top:temSize(16,$rate);
+    }
+    .step1 .strick_footer{
+        -webkit-flex-shrink: 0;
+            -ms-flex-negative: 0;
+                flex-shrink: 0;
+    }
+    .step1 .vote2_crown_no1,
+    .step1 .vote2_crown_no2,
+    .step1 .vote2_crown_no3{
+        display: inline-block;
+        width: temSize(71,$rate);
+        height: temSize(85,$rate);
+        margin-left: temSize(-12,$rate);
+        margin-top: temSize(-16,$rate);
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 20;
+    }
+    .vote2_crown_no1{
+        @include background100("../img/vote2_crown_no1.png");
+    }
+    .vote2_crown_no2{
+        @include background100("../img/vote2_crown_no2.png");
+    }
+    .vote2_crown_no3{
+        @include background100("../img/vote2_crown_no3.png");
+    }
+    .step1 .vote_index,
+    .step1 .vote_myParticipate,
+    .step1 .vote_participate,
+    .vote_index,
+    .vote_myParticipate,
+    .vote_participate{
+        line-height: initial;
+        display: inline-block;
+        width:temSize(226,$rate);
+        margin: 0 auto;
+        height:temSize(66,$rate);
+        
+        font-size: temSize(30,$rate);
+        text-align: center;
+        border-radius: temSize(7,$rate);
+    }
+    .step1 .vote_index,
+    .vote_index{
+        border:2px solid #222;
+        line-height: temSize(62,$rate);
+    }
+    .step1 .vote_participate,
+    .step1 .vote_myParticipate,
+    .vote_participate,
+    .vote_myParticipate{
+        background:#b81b21;
+        color:#fff;
+        line-height: temSize(66,$rate);
+    }
+
+    .vote_winter_bg{background:url("../img/vote2_bg_block.jpg")repeat;}
+    .vote-name-bg,
+    .vote-title-bg{background:none!important;}
+    .vote_timeLine_text{text-align: left;}
+
+    /*用户列表wrap*/
+    .step1 .voter-list-box-wrap{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient:vertical;
+        -webkit-box-direction:normal;
+        -webkit-flex-direction:column;
+            -ms-flex-direction:column;
+                flex-direction:column;
+        min-height: 100vh;
+    }
+    .step1 .voter-list-box .person-box{
+        margin:0 temSize(30,$rate);
+    }
+    /*用户列表*/
+    .step1 .voter-list-box .person-box .vote_person_item{
+        width:temSize(278,$rate);
+        height: temSize(380,$rate);
+        box-shadow:none;
+        border:none;
+        border-radius:none;
+        background-color:initial;
+        background-image:url("../img/vote2_wrap_bg.png");
+        background-size:100% 100%;
+        padding-top:temSize(20,$rate);
+    }
+    .step1 .voter-list-box .person-box li .avator{
+        width:temSize(230,$rate);
+        height: temSize(270,$rate);
+    }
+    .step1 .voter-list-box .person-box li .avator img{
+        width:100%;
+        height: 100%;
+    }
+    .voter-list-box .person-box li .avator .info .votes{
+        color:#ffd800;
+    }
+    .voter-list-box .person-box li .avator .info .name{
+        color:#fff;
+    }
+    .step1 .voter-list-box .person-box .votegroup-btn{
+        position: static;
+        width: temSize(226,$rate);
+        height: temSize(72,$rate);
+        margin:0 auto;
+        .vote-btn{
+            width:100%;
+            height:100%;
+        }
+        .vote-for{
+            @include background100("../img/vote2_voteFor.png");
+        }
+        .voted{
+            @include background100("../img/vote2_voted.png");
+        }
+        .vote-for-bad{
+            @include background100("../img/vote2_voteFor_bad.png");
+        }
+    }
+
+    .step1 .bottom_btn,
+    .bottom_btn{
+        border:0;
+        background:rgba(255,255,255,.9);
+    }
+    .step1 .bottom_btn .vote-btn-half,
+    .bottom_btn .vote-btn-half{
+        margin-top:0;
+        line-height: temSize(98,$rate);
+    }
+
+/*验证码弹窗*/
+.vote2_winter_verify .imgVerifyBody{
+    overflow: visible;
+    width:temSize(522, $rate);
+    height:temSize(529, $rate);
+    background:url("../img/vote2_bg_block.jpg")repeat;
+    border: temSize(4, $rate) solid #ffad0b;
+    border-radius:temSize(8, $rate);
+}
+.vote2_winter_verify .vote_detail_close_new{
+    background-size:95%;
+    top: temSize(-102,$rate);
+    /*&:after{display: none;}*/
+}
+.vote2_winter_verify .imgVerify_title{
+    font-size: temSize(36, $rate);
+    color:#ffad0b;
+    margin-bottom:temSize(68, $rate);
+}
+.vote2_winter_verify .imgVerify_box {
+    width:temSize(448, $rate);
+    height: temSize(88, $rate);
+    border-radius:temSize(12, $rate);
+    margin-bottom:temSize(30, $rate);
+    border:temSize(4, $rate) solid #ffad0b;
+    background-color:#fff;
+    
+}
+.vote2_winter_verify .imgVerify input[type="text"].imgVerify_text{
+    font-size: 0.75rem;
+    width: 100%;
+    padding-right: 0.5rem;
+    text-align: center;
+}
+.vote2_winter_verify .imgVerify_code_wrap{
+    width:temSize(448, $rate);
+    margin:0 auto;
+    height:temSize(80, $rate);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom:temSize(38, $rate);
+}
+.vote2_winter_verify .vote2_verify_btn{
+    display: inline-block;
+    width:temSize(220, $rate);
+    height:temSize(68, $rate);
+    @include background100("../img/vote2_verify_btn.png");
+}
+
+.vote2_winter_verify .imgVerify_buttons{
+    position: static;
+    width: temSize(448, $rate);
+    height: temSize(88, $rate);
+    margin:0 auto;
+    border:0;
+    @include background100("../img/vote2_verify_confirm.png");
+    &.disabled{background-image:url("../img/vote2_verify_confirm_disabled.jpg")}
+}
+.vote2_winter_verify .imgVerify_buttons .button.button-positive{
+    background:none;
+    width:100%;
+    height:100%;
+}
+
+
+/*========== 活动详情（弹窗） vote2by1-step2 ==============*/
+    .step2 .detail_box{
+        top:temSize(118,$rate);
+        width:temSize(538,$rate);
+        height:temSize(744,$rate);
+        background:url("../img/vote2_bg_block.jpg")repeat;
+        border-color:#ffad0b;
+        color:#ffad0b;
+        box-sizing: border-box;
+        
+    }
+    .step2 .title{
+        width: temSize(426,$rate);
+        margin:0 auto;
+        margin-top:temSize(-68,$rate);
+        top:temSize(-16,$rate);
+        left:initial;
+        height: temSize(68,$rate);
+        @include background100("../img/vote2_activity_title.png");
+    }
+    .step2 .detail_box .detail_scroll{
+        overflow: hidden;
+        padding:temSize(30,$rate);
+        height:100%;
+    }
+    .vote_detail_close_new{
+        position: absolute;
+        right:0;
+        top: temSize(-107,$rate);
+        display: inline-block;
+        width: temSize(60,$rate);
+        height: temSize(103,$rate);
+        @include background100("../img/vote2_close.png");
+        /*&:after{
+            content:'';
+            position:absolute;
+            bottom:0;
+            width:30%;
+            height:temSize(6,$rate);
+            background:#ffad0b; 
+            @include absoluteCenter(center);
+        }*/
+    }
+   /*========== 填资料写页 vote2by1-step3 ============== */
+   .vote_step3_wrap{
+       width:100%;
+       height: 100%;
+       background:#f4cfa0;
+   }
+   .form{
+       margin-top:0;
+       padding-top: temSize(22,$rate);
+       top:temSize(95,$rate);
+       width:temSize(538,$rate);
+       height: temSize(856,$rate);
+       border-radius:0;
+       border:none;
+       background:url("../img/vote2_bg_block.jpg")repeat;
+   }
+   .form .vote_decoration_top{
+       position:absolute;
+       @include absoluteCenter(center);
+       top:temSize(-83,$rate);
+       margin-top:temSize(18,$rate);
+       width:temSize(617,$rate);
+       height: temSize(83,$rate);
+       @include background100("../img/vote2_vote_departinfo.png");
+   }
+   .vote_decoration_dotted{
+       width:temSize(495,$rate);
+       margin:0 auto;
+       height: temSize(788,$rate);
+       @include background100("../img/vote_join_doted.png");
+   }
+   .vote_input_box{
+       @include absoluteCenter(center);
+   }
+   .header_box_big{
+       width:temSize(163,$rate);
+       height:temSize(194,$rate);
+       background:none;
+   }
+   .vote_name_input_box,
+   .vote_phone_input_box  {
+       color:#333;
+       font-size: temSize(30,$rate);
+       padding-left:temSize(34,$rate);
+   }
+   .vote_name_input,
+   .vote_phone_input{
+       margin-left:temSize(22,$rate);
+       text-align:center!important;
+       color:#efc122!important;
+   }
+   .vote_input_box .input_box .vote_useritems2{margin-right:temSize(26,$rate);display:flex;align-items: center;justify-content:flex-end;}
+   .vote_useritems2_text{font-size: temSize(24,$rate)}
+   .vote_useritems2_text.span1{color:#fff!important;}
+   .vote_input_box .input_box .vote_useritems2_text{font-size: temSize(24,$rate);}
+   .user_terms_checkbox{vertical-align: middle;}
+   .user_terms_checkbox,
+   .user_terms_checkbox_select{
+       width: temSize(33,$rate);
+       height: temSize(33,$rate);
+   }
+   .user_terms_checkbox{
+       @include background100("../img/vote2_agreeNot.png");
+   }
+   .user_terms_checkbox_select{
+       @include background100("../img/vote2_agree.png");
+   }
+   .vote_input_box .input_box h1{
+       font-family: "Microsoft Yahei";
+       margin-top: 0;
+       line-height: 1;
+       margin-bottom:temSize(12,$rate);
+       font-weight: normal;
+       color:#333;
+       text-indent: temSize(44,$rate)
+   }
+   .vote_input_box .input_box textarea{
+       width:temSize(436,$rate);
+       height: temSize(175,$rate);
+       margin-bottom:temSize(26,$rate);
+       background:#fff;
+   }
+   .vote_slogn_counts{
+       margin-right:temSize(60,$rate);
+       margin-top:temSize(-68,$rate);
+   }
+   .form .vote-btn-full{
+       display: block;
+       position:static;
+       width:temSize(319,$rate);
+       margin: 0 auto;
+       height:temSize(88,$rate);
+       background-image: url("../img/vote2_btn_bg.png");
+       &.btn-disabled{
+           background-image: url("../img/vote2_btn_bg2.png");
+       }
+   }
+   /*========== 投票详情页 vote2by1-step4 ============== */
+    .step4{
+        background:#edd4a1;
+    }
+    .step4 .bottom_btn{
+        background:#fcf5ec;
+    }
+    .step4 .userinfo_box{
+        position:relative;
+        top:temSize(95,$rate);
+        padding-top:temSize(22,$rate);
+        width: temSize(617,$rate);
+        height: temSize(780,$rate);
+        @include background100("../img/vote2_info_back.png");
+    }
+    .step4 .vote_departinfo{
+        position:absolute;
+       @include absoluteCenter(center);
+       margin-top:temSize(18,$rate);
+       top:temSize(-83,$rate);
+       width:temSize(617,$rate);
+       height: temSize(83,$rate);
+       @include background100("../img/vote2_vote_departinfo.png");
+       color:#fcdf79;
+       font-size:temSize(36,$rate);
+       font-style: normal;
+       text-shadow: none;
+       line-height: 1;
+       padding-top: temSize(19,$rate);
+    }
+    .step4 .rank{
+        background-image: url("../img/vote2_tran.png");
+        .rank_number{width:100%;height:100%;line-height:temSize(44,$rate);font-size: temSize(20,$rate);}
+    }
+    .step4 .rank_bg{
+        position:absolute;
+        width:temSize(71,$rate);
+        height: temSize(85,$rate);
+        left:0;
+        top:0;
+        margin-top:temSize(-14,$rate);
+        margin-left: temSize(-14,$rate);
+        &.vote2_crown_no1{
+            @include background100("../img/vote2_crown_no1.png");
+        }
+        &.vote2_crown_no2{
+            @include background100("../img/vote2_crown_no2.png");
+        }
+        &.vote2_crown_no3{
+            @include background100("../img/vote2_crown_no3.png");
+        }
+    }
+    .step4 .img_info_box{
+        width: temSize(340, $rate);
+    }
+    .step4 .img_info_box .personimg {
+        img{width:100%;height:100%;}
+        width:temSize(340, $rate);
+        height:temSize(404, $rate);
+    }
+    .step4 .img_info_box .personinfo{
+        width:temSize(340, $rate);
+    }
+    .step4 .img_info_box .personinfo .name{
+        width:50%;
+        padding-left:temSize(8, $rate);
+        margin-left:0;
+    }
+    .step4 .img_info_box .personinfo .score{
+        width: 50%;
+        margin-right:0;
+        text-align:right;
+        padding-right:temSize(8, $rate);
+        white-space: nowrap;
+        em{color:#fcdf79;}
+    }
+    .step4 .personslogn{
+        color:#fcdf79;
+    }
+    .step4 .personslogn p{
+        width:temSize(510, $rate);
+    }
+    .step4 .resign_box{
+        position:absolute;
+        bottom:0;
+        text-align: center;
+    }
+    .step4 .resign_box .resign_btn{
+        line-height: temSize(73,$rate);
+        height: temSize(73,$rate);
+        float:none;
+        font-style: normal;
+        font-weight: bold;
+        margin: 0 auto;
+        font-size: temSize(28,$rate);
+        text-decoration: underline;
+        color: #fcdf79;
+    }
+    .step4 .vote_btn_box{
+        width:temSize(319,$rate);
+        height:temSize(88,$rate);
+        background-image:url("../img/vote2_voteFor2.jpg");
+        &.vote_btn_box_bad{background-image:url("../img/vote2_voteFor_bad2.png")}
+        &.btn-disabled{background-image:url("../img/vote2_voted2.png")}
+        
+
+    }
+    .step4 .vote_activity_detail{
+        position:absolute;
+        top:0;
+        right:0;
+        margin-right:temSize(60,$rate);
+        color:#c33625;
+    }
+    .vote_btn_boxWrap{
+        position:relative;
+    }
+}/* }.microactivity-vote.vote-winter  结束*/
+ 
+

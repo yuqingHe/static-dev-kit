@@ -1,0 +1,154 @@
+﻿@charset "utf-8";
+/*-----------------------------------------------------------*/
+/*author :tingting.weng&xue.zhang                                      */
+/*description:微传单六                                        */
+/*-----------------------------------------------------------*/
+@function temSize($num,$rate:1){
+	@return ceil($num /40*100)/100*$rate*1rem;
+}
+$rate:1;
+/*预览正面&tingting.weng*/
+.microleaflet6.leafletbg1{@include background100("../img/leaflet6_bg1.jpg"); position:relative;}
+.microleaflet6 .leaflet6-front{width:100%;height:100%;padding-top: temSize(17,$rate);
+        .leaflet6-title{margin-bottom:temSize(13,$rate);}
+        .leaflet6-title-bg{width:temSize(497,$rate);height:temSize(79,$rate);@include background100("../img/leaflet6_title_bg.png");position:relative; margin-bottom:temSize(16,$rate);}
+        .leaflet6-title-content{top: temSize(23,$rate);left: temSize(64,$rate);position: absolute;font-size:temSize(36,$rate);color: #321d19;width: temSize(360,$rate) ;height:temSize(36,$rate) ;line-height:temSize(36,$rate) ;text-align: center;}
+        .leaflet6-title-description{width: temSize(468,$rate);text-align:center;color: #321d19;font-size:temSize(24,$rate);}
+        .leaflet6-animal{@include background100("../img/leaflet6_animal.png");width:temSize(640,$rate);height:temSize(575,$rate);}
+        .qrcode_content{position:absolute;bottom:temSize(116,$rate);right:temSize(20,$rate);width:temSize(120,$rate);height: temSize(150, $rate);}
+        .leaflet6_qrcode-box{margin-bottom:temSize(10,$rate);width:temSize(120,$rate);height: temSize(120, $rate);border-radius: temSize(8,$rate);background-color:#6e9f23;padding: temSize(8,$rate);}
+        .leaflet6_qrcode-box_white{width:temSize(104,$rate);height: temSize(104, $rate);background-color:#fff;padding: temSize(5,$rate);}
+        .leaflet6_qrcode_description{color:#321d19;font-size: temSize(20,$rate);width:temSize(127,$rate);right:temSize(20,$rate);line-height:temSize(20,$rate);height:temSize(20,$rate);}
+        .front_qrcode{width:100%;height:100%;}
+        .leaflet6-contact{height:temSize(197,$rate);width:temSize(473,$rate);position:absolute;left:temSize(20,$rate);bottom:temSize(80,$rate);}
+        .leaflet6-contact .contact-phone-bg{@include background100("../img/leaflet6_contact_phone_bg.png");width:temSize(79,$rate);height: temSize(48, $rate); position:absolute;left:0;top:0;}
+        .leaflet6-contact .contact-content{overflow:hidden;height:temSize(96,$rate);width:temSize(220,$rate);font-size: temSize(24,$rate);color:#321d19;margin-top:temSize(58,$rate);line-height:1.33;}
+        .leaflet6-contact .contact-address-bg{@include background100("../img/leaflet6_contact_address_bg.png");width:temSize(155,$rate);height: temSize(52, $rate); position:absolute;left:temSize(245,$rate);top:0;}
+        .leaflet6-contact .contact-address-content{overflow:hidden;height:temSize(135,$rate);width:temSize(231,$rate);font-size: temSize(24,$rate);color:#321d19;top:temSize(58,$rate);line-height:1.12;left:temSize(245,$rate);position:absolute;}
+}
+
+/*报名表单页&tingting.weng*/
+.microleaflet6.leafletbg3{@include background100("../img/leaflet6_2bg.jpg"); }
+.microleaflet6{ .microleaflet1_form .acty22_box3 .edit_info{color:#efc926;} .leaflet2_mask_adjustfy .acty22_box6 button{background:#efc926;}}
+.microleaflet6 .preview .microleaflet1_form .acty22_box1Outer .acty22_box1 .acty22_inputbox{width:temSize(500,$rate);overflow:hidden;}
+
+
+
+/*预览反面&xue.zhang*/
+.microleaflet6.leafletbg2{background:url("../img/leaflet6_2bg.jpg") $img-pozC;@include background-size100;position:relative;}
+.leaflet6_title{
+    width:temSize(508,$rate);
+    height:temSize(121,$rate);
+    background:url("../img/leaflet6_2title_bg.png") $img-pozC;@include background-size100;
+    margin:0 auto;
+    padding-top:temSize(66,$rate);
+    .leaflet6_titleText{
+    width:temSize(383,$rate);
+    height:temSize(36,$rate);
+    font-size:temSize(36,$rate);
+    line-height:temSize(36,$rate);
+    text-align:center;
+    color:#321d19;
+    margin:0 auto;
+  }
+}
+.content_box1{
+    width:temSize(580,$rate);
+    height:temSize(235,$rate);
+    margin:0 auto;
+    margin-top:temSize(44,$rate);
+    color:#321d19;
+    .content_title1{
+        font-size:temSize(36,$rate);
+        line-height:temSize(36,$rate);
+        text-align:center;
+    }
+    .content_text1{
+        height:temSize(175,$rate);
+        margin-top:temSize(20,$rate);
+        font-size:temSize(24,$rate);
+        line-height:temSize(36,$rate);
+        overflow:hidden;
+    }
+}
+.content_box2{
+    position:absolute;
+    width:temSize(242,$rate);
+    height:temSize(360,$rate);
+    margin-top:temSize(188,$rate);
+    left:temSize(60,$rate);
+    text-align:center;
+    color:#321d19;
+}
+.content_title2 {
+    font-size: temSize(36,$rate);
+    line-height: temSize(36,$rate);
+}
+
+.content_text2 {
+    margin-top: temSize(16,$rate);
+    font-size: temSize(24,$rate);
+    line-height: temSize(48,$rate);
+    overflow:hidden;
+}
+.content_box3{
+    position:absolute;
+    width:temSize(242,$rate);
+    height:temSize(360,$rate);
+    margin-top:temSize(188,$rate);
+    right:temSize(60,$rate);
+    text-align:center;
+    color:#321d19;
+}
+
+/*编辑&xue.zhang&tingting.weng*/
+.microleaflet6 .isEdit .microleaflet1_form .acty22_box1Outer .acty22_box1 .acty22_inputbox {width:temSize(424,$rate) !important;}/*修改表单页title的长度*/
+.isEdit .front_editOuter6{background:url(../img/leaflet6_editBg.jpg) $img-pozC;@include background-size100;color:#333;
+	textarea{color:#333;font-size:temSize(20,$rate);}
+    .front_edit_text1{font-size:temSize(28,$rate);}
+	.front_edit2_text2{font-size:temSize(22,$rate)!important;padding:0;line-height:1.2;height: temSize(190,$rate);}
+	.front_edit_title2{background: url(../img/microleaflet5_download1.png) no-repeat center center;-webkit-background-size: 100% temSize(148, $rate);background-size: 100% temSize(148, $rate);background-position-y: 100%;margin: 0 auto;margin-top: temSize(-40,$rate);;color: #333;text-align: center;font-size: temSize(28,$rate);}
+    .front_edit_box1,.front_edit2_box2,.front_edit2_box3,.front_edit2_box4{font-size:temSize(28,$rate);}
+	.front_edit2_box1,.front_edit2_box2,.front_edit2_box3,.front_edit2_box4{margin-top:temSize(8,$rate)!important;}
+    .front_edit2_text3,.front_edit2_text3{height:temSize(160,$rate);}  //设置班型和教学内容编辑框长度
+	
+}
+.front_editOuter{
+  .front_edit_box2{margin-top:temSize(12,$rate)!important;}
+}
+
+/*打印页弹窗&xue.zhang*/
+.download_pop_style_6 {
+    .download_pop_content {
+        background: url("../img/leaflet6_download_bg.png") $img-pozC;
+        @include background-size100;
+        .download_pop_title {
+            color: #321d19;
+            font-size: temSize(30,$rate);
+            line-height: temSize(84,$rate);
+            height:temSize(100,$rate);
+            background-image:url("") !important;
+        }
+
+        .download_pop_close {
+            background: url("../img/leaflet6_download_close.png") $img-pozC;
+            @include background-size100;
+            right: temSize(20,$rate);
+            top: temSize(44,$rate);
+        }
+
+        .download_pop_front, .download_pop_back {
+            box-shadow: 4px 5px 2px rgba(66, 25, 30, 0.4);
+        }
+
+        .download_pop_front {
+            margin-top: 0;
+            margin-bottom: temSize(15,$rate);
+        }
+
+        p {
+            color: #321d19;
+            margin-top: temSize(8, 1);
+        }
+    }
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="format-detection" content="telephone=no">
+    <title>dev environment</title>
+    <script src="libs/ScreenAdaptation.js"></script>
+    <script src="libs/ionic/js/ionic.bundle.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    <ion-nav-view>
+        <ion-view class="content-bg consultbook consultbookbg registrationbook">
+            <custom-mask></custom-mask>
+            <ion-nav-view>
+                <ion-view class="consultbookbg background_gray">
+                    <div class="nav-top-tabs" ng-if="!showBannerNone">
+                        <div class="nav-tab mar-lr-20" ng-class="{'mar-lr-40':!authManager}" ng-click="goAllList()">咨询</div>
+                        <div class="nav-tab mar-lr-20" ng-class="{'mar-lr-40':!authManager}" ng-click="goSchedule()">任务</div>
+                        <div class="nav-tab mar-lr-20 active-blue" ng-class="{'mar-lr-40':!authManager}" ng-click="">业绩</div>
+                        <div class="nav-tab mar-lr-20" ng-show="authManager" ng-click="goChannel()">渠道</div>
+                    </div>
+                    <ion-content ng-class="{'achieve-content':showFooterTab}" style="top: 2rem;" has-bouncing="false">
+                        <!--顶部容器-->
+                        <div class="non background_gray" style="overflow:hidden;" ng-click="toggoleTips()">
+                            <div class="achieve-header-container">
+                                <div class="achieve-title">
+                                    我的业绩
+                                    <i class="help" ng-click="toggoleTopTips()"></i>
+                                </div>
+                                <div class="achive-tips achivetips-top-date" ng-class="{'achive-tips-opacity-fade-in':showTopTips}" ng-show="showTopTips"><p>日期区间:经办时间</p></div>
+                                <div class="achive-tips achivetips-top-order achive-tips-opacity-fade-in"  ng-show="showTopTips"><p>报名订单总数</p></div>
+                                <div class="achive-tips achivetips-top-amount achive-tips-opacity-fade-in "  ng-show="showTopTips"><p>报名订单应收金额之和</p></div>
+                                <div class="nav-top-tabs date-container">
+                                    <span class="nav-tab mar-lr-40 active-blue"  ng-click="changeTab('day')" ng-class="{'active-blue':isShowDay}">本日</span>
+                                    <span class="nav-tab mar-lr-40" ng-click="changeTab('week')" ng-class="{'active-blue':isShowWeek}">本周</span>
+                                    <span class="nav-tab mar-lr-40" ng-click="changeTab('month')" ng-class="{'active-blue':isShowMonth}">本月</span>
+                                </div>
+                                <div class="num-container">
+                                    <div class="num-container-left">
+                                        <div class="achieve-text">成交量(人次)</div>
+                                        <div class="achieve-num">{{data.dealNum}}</div>
+                                    </div>
+                                    <div class="num-container-right">
+                                        <div class="achieve-text">成交额(元)</div>
+                                        <div class="achieve-num"><em class="money">¥</em>{{data.dealAmount}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="funnel-plot-container">
+                                <div class="achieve-title">
+                                    我的业绩
+                                    <i class="help"></i>
+                                </div>
+                                <div class="achive-tips achivetips-bottom-date" ng-show="showBottomTips"><p>日期区间:经办时间</p></div>
+                                <div class="achive-tips achivetips-bottom-status" ng-show="showBottomTips"><p>报名订单总数</p></div>
+                                <div class="nav-top-tabs date-container">
+                                    <span class="nav-tab mar-lr-40 active-blue"  ng-click="changeTab('day')" ng-class="{'active-blue':isShowDay}">本日</span>
+                                    <span class="nav-tab mar-lr-40" ng-click="changeTab('week')" ng-class="{'active-blue':isShowWeek}">本周</span>
+                                    <span class="nav-tab mar-lr-40" ng-click="changeTab('month')" ng-class="{'active-blue':isShowMonth}">本月</span>
+                                </div>
+                                <div class="funnel-wrap">
+                                    <div class="funnel-num-wrap">
+                                        <div class="funnel-num-text">全部咨询</div><span>{{data.consult.all}} 人</span></div>
+                                    <div class="funnel-num-wrap">
+                                        <div class="funnel-num-text">待跟进</div><span>{{data.consult.BeUp}} 人</span></div>
+                                    <div class="funnel-num-wrap">
+                                        <div class="funnel-num-text">跟进中</div><span>{{data.consult.FollowingUp}} 人</span></div>
+                                    <div class="funnel-num-wrap">
+                                        <div class="funnel-num-text">已到访</div><span>{{data.consult.Visited}} 人</span></div>
+                                    <div class="funnel-num-wrap">
+                                        <div class="funnel-num-text">已成交</div><span>{{data.consult.DealDone}} 人</span></div>
+                                </div>
+                                <div class="sales-data-wrap">
+                                    <div class="sales-percent-map">
+                                        <p class="sales-map-des">成交率（已成交 ÷ 全部咨询）</p>
+                                        <div class="sales-map-outer">
+                                            <div class="sales-map-inner " ng-style="{width:data.consult.dealpercent+'%'}"></div>
+                                        </div>
+                                    </div>
+                                    <span class="sales-percent-text">{{data.consult.dealpercent}}%</span>
+                                </div>
+                                <div class="sales-data-wrap">
+                                    <div class="sales-percent-map">
+                                        <p class="sales-map-des">流失率（已失效 ÷ 全部咨询）</p>
+                                        <div class="sales-map-outer">
+                                            <div class="sales-map-inner" ng-style="{width:data.consult.losingpercent+'%'}"></div>
+                                        </div>
+                                    </div>
+                                    <span class="sales-percent-text">{{data.consult.losingpercent}}%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </ion-content>
+                    <ion-footer-bar class="bar bar-footer footer_book new_tabs ng-hide" ng-show="showFooterTab">
+                        <a class="new_tab_item" ng-click="goMyScenes()"><i class="footerbook_icon1"></i><span class="footerbook_text">我的场景</span></a>
+                        <a class="new_tab_item" ng-click="goMicroShop()"><i class="micro-shop-ico"></i><span class="footerbook_text">我的微店</span></a>
+                        <a class="new_tab_item active"><i class="footerbook_icon2"></i><span class="footerbook_text">咨询本</span></a>
+                        <a class="new_tab_item" ng-click="goUserCenter()"><i class="footerbook_icon3"></i><span class="footerbook_text">用户中心</span></a>
+                    </ion-footer-bar>
+                </ion-view>
+            </ion-nav-view>
+            <text-input-callback></text-input-callback>
+            <prompt-bar></prompt-bar>
+            <div class="datetime-select"></div>
+        </ion-view>
+    </ion-nav-view>
+</body>
+<script type="text/javascript">
+changeFontSizeNewMicoSite()
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope. authManager=true;
+    $scope. showFooterTab=true;
+    $scope. isShowDay=true;
+    $scope. isShowWeek=false;
+    $scope. isShowMonth=false;
+    $scope. showTopTips=false;
+    $scope. showBottomTips=true;
+    $scope.data = {
+        dealNum :123,
+        dealAmount:333,
+        consult:{
+            all:456,
+            BeUp:333,
+            FollowingUp:444,
+            Visited:32,
+            DealDone:43,
+            dealpercent:76,
+            losingpercent:65
+        }
+    };
+     $scope.fadeIn=false;
+     $scope.toggoleTopTips=function(){
+ $scope.showTopTips= !$scope.showTopTips;
+ $scope.fadeIn=true;
+    }
+//      $scope.toggoleTips=function(){
+//  $scope.toggoleTopTips();
+//   console.log("toggoleTips")
+//     }
+//      $scope.changeTab=function(){
+//  console.log("chagnetab")
+//     }
+});
+</script>
+
+</html>

@@ -1,0 +1,92 @@
+//#
+//# author:tianyu.chen
+//# email: tainyu.chen@xiaobao100.com | cty8998@163.com
+//# description: 老旧mixin整合
+//#
+//###########################################################
+
+
+//新增微官网通用样式 by wenjun  20151201 {
+@mixin text-shadow-s4($shadow-color2_2){ text-shadow:$shadow-color2_2 0 1px 5px; -webkit-text-shadow:$shadow-color2_2 0 1px 5px;}//文字加描边
+@mixin text-shadow-base($shadow-value){-webkit-text-shadow:$shadow-value; text-shadow:$shadow-value;}//自定义文本投影
+@mixin transition-s1{-webkit-transition: all 1s ease-in-out; transition: all 1s ease-in-out;}//基本动画1
+@mixin transition-base($transition-value){-webkit-transition:$transition-value; -moz-transition: $transition-value; -o-transition: $transition-value; transition: $transition-value;}//基本动画
+@mixin item_patch1{overflow: inherit; text-overflow: inherit; white-space: inherit;}
+@mixin item_patch2{border: none; margin: 0; padding: 0;}
+.new_tabs{display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-direction: normal; -webkit-box-orient: horizontal; -webkit-flex-direction: horizontal; flex-direction: horizontal; -webkit-box-pack: center;  -webkit-justify-content: center; justify-content: center; -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0);}
+.new_tab_item{ -webkit-box-flex: 1; -webkit-flex: 1; flex: 1; display: block; overflow: hidden;}
+//} 新增微官网通用样式 by wenjun
+
+@mixin font-size-base{font-size:12px; font-size:1.2rem;} //默认字号
+@mixin box-sizing-base{-webkit-box-sizing:border-box;box-sizing: border-box;}
+@mixin opacity-base($opacity:70){-webkit-opacity:$opacity /100;opacity:$opacity /100;} //定义透明度，用于遮罩等
+@mixin mask-base{left:0; top:0; right:0; bottom:0; width: 100%; height:100%; background-color:#000;} //遮罩代码提取
+@mixin background-size($value1,$value2){-webkit-background-size:$value1 $value2; background-size:$value1 $value2;} //背景图片拉伸方式
+@mixin background-size100{-webkit-background-size:100% 100%; background-size:100% 100%;} //背景图片拉伸方式
+@mixin background-size80{-webkit-background-size:80% 80%; background-size:80% 80%;} //背景图片拉伸方式
+@mixin background-size-cover{-webkit-background-size: cover; background-size: cover;} //背景图片拉伸方式
+@mixin background-size-s1{-webkit-background-size:100% auto; background-size:100% auto;} //背景图片拉伸方式
+@mixin background-size-s2{-webkit-background-size:100% auto,100% auto; background-size:100% auto,100% auto;}//两张背景图片拉伸方式
+@mixin background-size-s3{-webkit-background-size:auto 100%;background-size:auto 100%;} //背景图片拉伸方式
+@mixin background-size($value1,$value2){-webkit-background-size:$value1 $value2; background-size:$value1 $value2;} //背景图片拉伸方式
+@mixin face-radius{-webkit-border-radius:50%; border-radius:50%;} //圆形圆角
+@mixin border-radius-basic($radius){-webkit-border-radius:$radius; border-radius:$radius;} //圆角自定义
+@mixin border-radius-small{@include border-radius-basic(3px);}
+@mixin border-radius-base{@include border-radius-basic(5px);}
+@mixin border-radius-large{@include border-radius-basic(10px);}
+@mixin border-radius-Mlarge{@include border-radius-basic(12px);}
+@mixin border-radius-Xlarge{@include border-radius-basic(20px);}
+@mixin transform-rotate($ratate){-webkit-transform: rotate($ratate); transform:rotate($ratate);}
+@mixin background-linear($a,$b){background: $a; background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$a), color-stop(100%,$b)); background: -webkit-linear-gradient(top, $a 0%,$b 100%); background: linear-gradient(to bottom, $a 0%,$b 100%);}
+@mixin text-shadow-s1($shadow-color){
+  text-shadow:$shadow-color 1px 0 0.5px,$shadow-color 0 1px 0.5px,$shadow-color -1px 0 0.5px,$shadow-color 0 -1px 0.5px;
+  -webkit-text-shadow:$shadow-color 1px 0 0.5px,$shadow-color 0 1px 0.5px,$shadow-color -1px 0 0.5px,$shadow-color 0 -1px 0.5px;
+}//文字加1px描边
+@mixin text-shadow-s2($shadow-color2){
+  text-shadow:$shadow-color2 1px 0 3px,$shadow-color2 0 1px 3px,$shadow-color2 -1px 0 3px,$shadow-color2 0 -1px 3px;
+  -webkit-text-shadow:$shadow-color2 1px 0 3px,$shadow-color2 0 1px 3px,$shadow-color2 -1px 0 3px,$shadow-color2 0 -1px 3px;
+}//文字加描边
+@mixin text-shadow-s2_2($shadow-color2_2){
+  text-shadow:$shadow-color2_2 3px 0 1px,$shadow-color2_2 0 -2.5px 1px,$shadow-color2_2 -2.5px 0 1px,$shadow-color2_2 0 3px 1px;
+  -webkit-text-shadow:$shadow-color2_2 3px 0 1px,$shadow-color2_2 0 -2.5px 1px,$shadow-color2_2 -2.5px 0 1px,$shadow-color2_2 0 3px 1px;
+}//微官网文字样式2_2
+//#266364 3px 0 1px, #266364 0 -2.5px 1px, #266364 -2.5px 0 1px, #266364 0 3px 1px
+@mixin text-shadow-s2_1($shadow-color2_1){
+  text-shadow:$shadow-color2_1 0.5px 0.5px 2px,$shadow-color2_1 0.5px 0.5px 0px,$shadow-color2_1 0.5px 0.5px 2px,$shadow-color2_1 0.5px 0.5px 0px;
+  -webkit-text-shadow:$shadow-color2_1 0.5px 0.5px 2px,$shadow-color2_1 0.5px 0.5px 2px,$shadow-color2_1 0.5px 0.5px 2px,$shadow-color2_1 0.5px 0.5px 2px;
+}//微官网文字样式2_1
+
+@mixin text-shadow-s2_3($shadow-color2_1){
+  text-shadow:$shadow-color2_1 0 1px 3px,$shadow-color2_1 1px 0 3px,$shadow-color2_1 0 -1px 1px,$shadow-color2_1 -1px 0 1px;
+  -webkit-text-shadow:$shadow-color2_1 0 1px 3px,$shadow-color2_1 1px 0 3px,$shadow-color2_1 0 -1px 1px,$shadow-color2_1 -1px 0 1px;
+}//微官网文字样式2_3
+
+ @mixin text-shadow-s2_4($shadow-color2_1){
+  text-shadow:$shadow-color2_1 1px 2px 0px,$shadow-color2_1 -1px 2px 0px;
+  -webkit-text-shadow:$shadow-color2_1 1px 2px 0px,$shadow-color2_1 -1px 2px 0px;
+}
+
+@mixin text-shadow-s3{text-shadow:rgba(13,4,8,.11) 1px 1px 1px,rgba(13,4,8,.11) -1px -1px 1px; -webkit-text-shadow:rgba(13,4,8,.11) 1px 1px 1px,rgba(13,4,8,.11) -1px -1px 1px;}//文字加描边
+
+@mixin box-shadow-s1{-webkit-box-shadow:2px 2px 5px rgba(13, 4, 8, 0.21),-2px -2px 5px rgba(13, 4, 8, 0.21); box-shadow:2px 2px 5px rgba(13, 4, 8, 0.21),-2px -2px 5px rgba(13, 4, 8, 0.21);}//投影
+@mixin box-shadow-base($shadow-value){-webkit-box-shadow:$shadow-value; box-shadow:$shadow-value;}//自定义投影
+@mixin t_overflow{overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}/* 超过宽度出现省略号... */
+@mixin text-shadow-style{text-shadow: 0 1px 1px rgba(0,0,0,0.4);}
+
+//============================================================
+//   flex：定义布局为盒模型
+//   flex-v：盒模型垂直布局
+//   flex-1：子元素占据剩余的空间
+//   flex-align-center：子元素垂直居中
+//   flex-pack-center：子元素水平居中
+//   flex-pack-justify：子元素两端对齐
+//   兼容性：ios 4+、android 2.3+、winphone8+
+//   ============================================================ */
+@mixin display_flex{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}
+@mixin display_flex-v{-webkit-box-orient:vertical;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}
+@mixin display_flex-1{-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;}
+@mixin display_flex-align-center{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;}
+@mixin display_flex-pack-center{-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}
+@mixin display_flex-pack-justify{-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;}
+
+

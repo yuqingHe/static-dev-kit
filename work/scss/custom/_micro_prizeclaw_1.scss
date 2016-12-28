@@ -1,0 +1,685 @@
+﻿/**
+* name:冬招-圣诞集字模板
+* Arthur：tianyu.chen && xue.zhang && huijuan.zhou
+* description:
+* time:2016年11月25日16:17:34
+**/
+@function temSize($num, $rate: 1) {
+    @return ceil($num /40*100)/100*$rate*1rem;
+}
+/*=====================================================*/
+/*             圣诞集字样式公共部分 by tianyu.chen       */
+/*=====================================================*/
+/*雪碧图优化*/
+
+.micro_prizeClaw_popup_btn,
+.micro_prizeclaw_btn_affirm,
+.micro_prizeClaw_btn_exit,
+.micro_prizeClaw_btn_goAhead{
+    background-size: temSize(204, $rate) temSize(3103, $rate);
+    background-image: url('../img/micro_prizeClaw_btn_sprite.png');
+    background-repeat: no-repeat;
+}
+/*弹窗按钮*/
+.micro_prizeClaw_popup_btn.formalJoin{&.activated{background-position:0 temSize(-350, $rate);}}
+.micro_prizeClaw_popup_btn.ok{&.activated{background-position: 0 temSize(-816, $rate);}}
+.micro_prizeClaw_popup_btn.join{&.activated{background-position: 0 temSize(-1358, $rate);}}
+.micro_prizeclaw_btn_affirm{&.activated{background-position: 0 temSize(-816, $rate)!important;}}
+.micro_prizeClaw_btn_exit{&.activated{background-position: 0 temSize(-117, $rate)}}
+.micro_prizeClaw_btn_goAhead{&.activated{background-position: 0 temSize(-583, $rate);}}
+
+/*原始图片备份*/
+
+// /*我的娃娃按钮*/
+// .micro_prizeclaw_myCollection{&.activated{background-image:url("../img/a_micro_prizeclaw_myCollection.png")}}
+// /*中部按钮组*/
+// .micro_prizeclaw_btn_start{&.activated{background-image:url("../img/a_micro_prizeclaw_btn_start.png")}}
+// .micro_prizeclaw_btn_stop{&.activated{background-image:url("../img/a_micro_prizeclaw_btn_stop.png")}}
+// .micro_prizeclaw_btn_try{&.activated{background-image:url("../img/a_micro_prizeclaw_btn_try.png")}}
+// .micro_prizeclaw_btn_mySelf{&.activated{background-image:url("../img/a_micro_prizeclaw_btn_mySelf.png")}}
+// .micro_prizeclaw_btn_helpHim{&.activated{background-image:url("../img/a_micro_prizeclaw_btn_helpHim.png")}}
+// .micro_prizeclaw_btn_join{&.activated{background-image:url("../img/a_micro_prizeclaw_btn_join.png")}}
+// /*弹窗按钮*/
+// .micro_prizeClaw_popup_btn.formalJoin{&.activated{background-image:url("../img/a_micro_prizeClaw_btn_formalJoin.png")}}
+// .micro_prizeClaw_popup_btn.ok{&.activated{background-image:url("../img/a_micro_prizeClaw_btn_hao.png")}}
+// .micro_prizeClaw_popup_btn.join{&.activated{background-image:url("../img/a_micro_prizeClaw_btn_join2.png")}}
+// .micro_prizeclaw_btn_affirm{&.activated{background-image:url("../img/a_micro_prizeClaw_btn_hao.png")!important;}}
+// .micro_prizeClaw_btn_exit{&.activated{background-image:url("../img/a_micro_prizeClaw_btn_exit.png")}}
+// .micro_prizeClaw_btn_goAhead{&.activated{background-image:url("../img/a_micro_prizeClaw_btn_goAhead.png")}}
+
+/*液晶数字样式*/
+.micro_prizeclaw_lcdWrap{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.micro_prizeclaw_lcdWrap .LCD_num{
+    display: inline-block;
+    width: temSize(19, $rate);
+    height: temSize(35, $rate);
+    @include background100("../img/micro_prizeclaw_num.png");
+    %numCommon{display:inline-block;width:100%;height: 100%;}
+    .num-{@extend %numCommon; @include background100("../img/micro_prizeclaw_num-.png");}
+    .num0{@extend %numCommon; @include background100("../img/micro_prizeclaw_num0.png");}
+    .num1{@extend %numCommon; @include background100("../img/micro_prizeclaw_num1.png");}
+    .num2{@extend %numCommon; @include background100("../img/micro_prizeclaw_num2.png");}
+    .num3{@extend %numCommon; @include background100("../img/micro_prizeclaw_num3.png");}
+    .num4{@extend %numCommon; @include background100("../img/micro_prizeclaw_num4.png");}
+    .num5{@extend %numCommon; @include background100("../img/micro_prizeclaw_num5.png");}
+    .num6{@extend %numCommon; @include background100("../img/micro_prizeclaw_num6.png");}
+    .num7{@extend %numCommon; @include background100("../img/micro_prizeclaw_num7.png");}
+    .num8{@extend %numCommon; @include background100("../img/micro_prizeclaw_num8.png");}
+    .num9{@extend %numCommon; @include background100("../img/micro_prizeclaw_num9.png");}
+}
+
+
+
+/*=====================================================*/
+/*               首屏 edit by tianyu.chen              */
+/*=====================================================*/
+
+//修复首屏设计给的稿件尺寸高度过高的bug
+.micro_prizeclaw_firstScreenFix{
+    $rate:0.98;
+    .micro_prizeclaw_title_img{top:temSize(0, $rate);margin-top: temSize(-88, $rate)!important;width: temSize(432, $rate);height: temSize(88, $rate);}
+    .micro_prizeclaw_machine{width: temSize(581, $rate);height: temSize(914, $rate);bottom:temSize(17, $rate);}
+    .micro_prizeclaw_avator{width: temSize(82, $rate);height: temSize(85, $rate);top: temSize(21, $rate);left:temSize(26, $rate);img{border-radius:temSize(10, $rate);}}
+    .micro_prizeclaw_userName{width: temSize(278, $rate);height: temSize(44, $rate);top:temSize(23, $rate);left: temSize(124, $rate);line-height: temSize(44, $rate);padding:0 temSize(20, $rate);font-size: temSize(22, $rate);}
+    .micro_prizeclaw_canvas_wrap{top:temSize(127, $rate);left:temSize(30, $rate);width: temSize(365, $rate);border-radius: temSize(10, $rate);height: temSize(380, $rate);}
+    .micro_prizeclaw_canvas_glassCover{border-radius: temSize(10, $rate);}
+    .micro_prizeclaw_canvas{margin-top:temSize(22.8, $rate);}
+    .micro_prizeclaw_collectedBoard{top: temSize(286, $rate);left: temSize(433, $rate);width: temSize(108, $rate);height: temSize(77, $rate);padding:temSize(24, $rate) temSize(19, $rate)  temSize(18, $rate);}
+    .micro_prizeclaw_myCollection{top:temSize(379, $rate);left: temSize(427, $rate);width: temSize(118, $rate);height: temSize(110, $rate);}
+    .micro_prizeclaw_buttonGroup{top:temSize(534, $rate);left:temSize(128, $rate);width: temSize(204, $rate);height: temSize(127, $rate);}
+    .micro_prizeClaw_btn_cover{top: temSize(476, $rate);left:temSize(12, $rate);width:temSize(562, $rate);height: temSize(261, $rate);}
+    .micro_prizeclaw_activityDetal{top:temSize(697, $rate);left:temSize(27, $rate);width: temSize(174, $rate);height: temSize(88, $rate);}
+    .micro_prizeclaw_leftTimesBoard{top:temSize(752, $rate);left:temSize(433, $rate);width: temSize(103, $rate);height: temSize(64, $rate);padding:temSize(12, $rate) temSize(16, $rate) temSize(10, $rate);}
+    .micro_prizeclaw_company{top:temSize(795, $rate);left: temSize(22, $rate);width: temSize(382, $rate);height: temSize(89, $rate);line-height: temSize(89, $rate);font-size: temSize(24, $rate);padding:0 temSize(20, $rate);}
+
+    //首屏按钮图片尺寸修复
+    .micro_prizeclaw_btn_start,
+    .micro_prizeclaw_btn_stop,
+    .micro_prizeclaw_btn_try,
+    .micro_prizeclaw_btn_mySelf,
+    .micro_prizeclaw_btn_helpHim,
+    .micro_prizeclaw_btn_join,
+    .micro_prizeclaw_myCollection{
+        background-size: temSize(204, $rate) temSize(3103, $rate);
+        background-image: url('../img/micro_prizeClaw_btn_sprite.png');
+        background-repeat: no-repeat;
+    }
+    //娃娃机中部按钮
+    .micro_prizeclaw_btn_start{background-position: 0 temSize(-2266, $rate)}
+    .micro_prizeclaw_btn_stop{background-position: 0 temSize(-2550, $rate)}
+    .micro_prizeclaw_btn_try{background-position: 0 temSize(-2834, $rate)}
+    .micro_prizeclaw_btn_mySelf{background-position: 0 temSize(-1982, $rate)}
+    .micro_prizeclaw_btn_helpHim{background-position: 0 temSize(-932, $rate)}
+    .micro_prizeclaw_btn_join{background-position: 0 temSize(-1216, $rate)}
+    .micro_prizeclaw_myCollection{background-position: 0 temSize(-1732, $rate)}
+    //娃娃机中部按钮 按下状态
+    .micro_prizeclaw_myCollection{&.activated{background-position:0 temSize(-1857, $rate)}}
+    .micro_prizeclaw_btn_start{&.activated{background-position: 0 temSize(-2408, $rate);}}
+    .micro_prizeclaw_btn_stop{&.activated{background-position: 0 temSize(-2692, $rate);}}
+    .micro_prizeclaw_btn_try{&.activated{background-position: 0 temSize(-2976, $rate)}}
+    .micro_prizeclaw_btn_mySelf{&.activated{background-position:0 temSize(-2124, $rate)}}
+    .micro_prizeclaw_btn_helpHim{&.activated{background-position:0 temSize(-1074, $rate);}}
+    .micro_prizeclaw_btn_join{&.activated{background-position: 0 temSize(-1590, $rate);}}
+}//.micro_prizeclaw_firstScreenFix结束
+
+
+.micro_prizeclaw{
+    position:relative;
+    width:100%;
+    @include background100("../img/micro_prizeclaw_bg.jpg");
+}
+.micro_prizeclaw_title_img{
+    position:absolute;
+    top:temSize(0, $rate);
+    margin-top: temSize(-88, $rate)!important;//替换reset样式
+    width: temSize(432, $rate);
+    height: temSize(88, $rate);
+    @include absoluteCenter(center);
+    @include background100("../img/micro_prizeclaw_title.png");
+}
+.micro_prizeclaw_machine{
+    position:absolute;
+    width: temSize(581, $rate);
+    height: temSize(914, $rate);
+    bottom:temSize(17, $rate);
+    @include background100("../img/micro_prizeclaw_machine.png?version=2.0");
+    @include absoluteCenter(center);
+}
+
+//娃娃机顶部信息
+.micro_prizeclaw_avator{
+    position:absolute;
+    width: temSize(82, $rate);
+    height: temSize(85, $rate);
+    top: temSize(21, $rate);
+    left:temSize(26, $rate);
+    img{width: 100%;height: 100%;border-radius:temSize(10, $rate);}
+}
+.micro_prizeclaw_avator_cover{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    @include background100("../img/micro_prizeclaw_avato_cover.png");
+}
+.micro_prizeclaw_userName{
+    position: absolute;
+    width: temSize(278, $rate);
+    height: temSize(44, $rate);
+    // line-height: temSize(44, $rate);
+    top:temSize(23, $rate);
+    font-size: temSize(22, $rate);
+    left: temSize(124, $rate);
+    padding:0 temSize(20, $rate);
+    color:#333;
+    .ib-center{vertical-align: middle;}
+    &:after{
+        content:"";
+        display:inline-block;
+        height:100%;
+        width:0;
+        vertical-align:middle;
+    }
+}
+
+//娃娃机中部
+.micro_prizeclaw_canvas_wrap{
+    position: absolute;
+    top:temSize(127, $rate);
+    left:temSize(30, $rate);
+    width: temSize(365, $rate);
+    border-radius: temSize(10, $rate);
+    height: temSize(380, $rate);
+}
+.micro_prizeclaw_canvas_glassCover{
+    position: absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height: 100%;
+    border-radius: temSize(10, $rate);
+    @include background100("../img/micro_prizeclaw_canvas_glassCover.png");
+}
+.micro_prizeclaw_canvas{
+    margin-top:temSize(22.8, $rate);
+}
+.micro_prizeclaw_collectedBoard{
+    position:absolute;
+    top: temSize(286, $rate);
+    left: temSize(433, $rate);
+    width: temSize(108, $rate);
+    height: temSize(77, $rate);
+    padding:temSize(24, $rate) temSize(19, $rate)  temSize(18, $rate);
+    @include background100("../img/micro_prizeclaw_collectedBoard.png");
+}
+.micro_prizeclaw_myCollection{
+    position: absolute;
+    top:temSize(379, $rate);
+    left: temSize(427, $rate);
+    width: temSize(118, $rate);
+    height: temSize(110, $rate);
+    @include background100("../img/micro_prizeclaw_myCollection.png");
+}
+.micro_prizeclaw_buttonGroup{
+    position:absolute;
+    top:temSize(534, $rate);
+    left:temSize(128, $rate);
+    width: temSize(204, $rate);
+    height: temSize(127, $rate);
+    z-index: 1;
+}
+.micro_prizeClaw_btn_cover{
+    position:absolute;
+    top: temSize(476, $rate);
+    left:temSize(12, $rate);
+    width:temSize(562, $rate);
+    height: temSize(261, $rate);
+    @include background100("../img/micro_prizeclaw_button_cover.png");
+}
+
+//娃娃机底部
+.micro_prizeclaw_activityDetal{
+    position: absolute;
+    top:temSize(697, $rate);
+    left:temSize(27, $rate);
+    width: temSize(174, $rate);
+    height: temSize(88, $rate);
+
+}
+.micro_prizeclaw_leftTimesBoard{
+    position: absolute;
+    top:temSize(752, $rate);
+    left:temSize(433, $rate);
+    width: temSize(103, $rate);
+    height: temSize(64, $rate);
+    padding:temSize(12, $rate) temSize(16, $rate) temSize(10, $rate);
+    @include background100("../img/micro_prizeclaw_leftTimesBoard.png");
+}
+.micro_prizeclaw_company{
+    position: absolute;
+    top:temSize(795, $rate);
+    left: temSize(22, $rate);
+    width: temSize(382, $rate);
+    height: temSize(89, $rate);
+    line-height: temSize(89, $rate);
+    font-size: temSize(24, $rate);
+    color:#fff;
+    text-align: center;
+    padding:0 temSize(20, $rate);
+    @include background100("../img/micro_prizeclaw_company.png");
+    }
+
+/*=====================================================*/
+/*               首屏编辑 edit by tianyu.chen           */
+/*=====================================================*/
+//首屏编辑页 micro_prizeclaw_edit1{开始
+.micro_prizeclaw_edit1{
+    $rate:0.8;
+    width: temSize(640, $rate);
+    height: temSize(1000, $rate);
+    padding-top:temSize(60, $rate);
+    @include background100("../img/micro_prizeclaw_edit1_bg.jpg");
+    
+    .micro_prizeclaw_title_img{
+        position:static;
+        margin:0 auto;
+        margin-top:0!important;//覆盖首屏样式
+        -webkit-transform: none;
+                transform: none;
+    }
+    .micro_prizeclaw_company{
+        position: static;
+        margin:0 auto;
+        margin-top:temSize(60, $rate);
+    }
+    .micro_prizeclaw_avator_wrap{
+        position: relative;
+        width: temSize(258, $rate);
+        margin:0 auto;
+        margin-top:temSize(52, $rate);
+        margin-bottom:temSize(62, $rate);
+        height: temSize(262, $rate);
+        line-height: temSize(262, $rate);
+        text-align: center;
+    }
+    .micro_prizeclaw_avator_bg{
+        width: 95%;
+        height: 95%;
+        border-radius:temSize(20, $rate);
+    }
+    .micro_prizeclaw_avator_cover_big{
+        position: absolute;
+        left:0;
+        top:0;
+        width: 100%;
+        height: 100%;
+        @include background100("../img/micro_prizeclaw_avato_cover.png");
+    }
+    .micro_prizeclaw_userName{
+        background: #fff;
+        position:static;
+        width: temSize(442, $rate);
+        margin:0 auto;
+        padding: 0 temSize(10, $rate);
+        height: temSize(85, $rate);
+        line-height: temSize(85, $rate);
+        border: temSize(4, $rate) solid #54241a;
+        border-radius: temSize(18, $rate);
+        text-align: center;
+        font-size: temSize(36, $rate);
+        color:#333;
+    }
+}
+//}首屏编辑页 micro_prizeclaw_edit1 结束
+
+
+
+
+/*=====================================================*/
+/*          弹窗 edit by xue.zhang & tianyu.chen       */
+/*=====================================================*/
+
+/******************* 张雪todo *************************/
+
+/*“我的圣诞娃娃”弹窗*/
+.micro_prizeclaw_mySantas{  
+    width: 100%;
+   .micro_prizeclaw_mySantas_content{
+    position: absolute;
+    width: temSize(516, $rate);
+    height: temSize(489, $rate);
+    padding-top: temSize(24, $rate);
+    @include absoluteCenter();
+    @include background100("../img/micro_prizeclaw_pop_bg.png"); 
+   }  
+
+   /*"我的圣诞娃娃"图片字体*/
+  .micro_prizeclaw_mySantas_Font{
+       width:temSize(250, $rate);
+       height:temSize(40, $rate);
+       margin:0 auto;
+       @include background100("../img/micro_prizeClaw_wodeshengdanwawa.png");
+  }
+  /*"圣诞快乐"区域*/
+  .micro_prizeclaw_Santa{
+       height: temSize(165, $rate);
+       width:temSize(448, $rate);
+       margin:0 auto;
+       margin-top: temSize(26, $rate);
+       margin-bottom: temSize(20, $rate);
+  }
+  /*“圣诞快乐”四个字*/
+  .micro_prizeclaw_Santafonts{
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      -webkit-box-pack: space-between;
+          -ms-flex-pack: space-between;
+              justify-content: space-between;
+      width: temSize(448, $rate);
+      height: temSize(111, $rate);
+
+           .micro_prizeclaw_SantafontsImg{
+           width: temSize(82, $rate);
+           height: temSize(117, $rate);
+
+           .micro_prizeclaw_showSum{
+               height:temSize(43, $rate);
+               width: temSize(82, $rate);
+               margin-top: temSize(127, $rate);
+               border: #663333 2px solid;;
+               -webkit-border-radius:temSize(15, $rate);
+               -moz-border-radius:temSize(15, $rate);
+               border-radius:temSize(15, $rate);
+               background-color: white;
+               font-size: temSize(24, $rate);
+               text-align: center;   
+               line-height: temSize(39, $rate); //border:2px
+          }
+      }
+      .micro_prizeclaw_SantafontsImg1{
+           @include background100("../img/prizeclaw_sheng.png");
+      }
+      .micro_prizeclaw_SantafontsImg2{
+           @include background100("../img/prizeclaw_dan.png");
+      }
+      .micro_prizeclaw_SantafontsImg3{
+           @include background100("../img/prizeclaw_kuai.png");
+      }
+      .micro_prizeclaw_SantafontsImg4{
+           @include background100("../img/prizeclaw_le.png");
+      }
+ }
+       
+  /*文字详情“暂未集齐...”*/
+  .micro_prizeclaw_detail{
+    // width: temSize(360, $rate);
+    margin:0 auto;
+    font-size: temSize(24, $rate);
+    color: white;
+    text-align: center;
+  }
+  
+  /*确定按钮*/
+  .micro_prizeclaw_btn_affirm{
+      width: temSize(116, $rate);
+      height: temSize(96, $rate);
+      display:block;
+      margin:0 auto;
+      margin-top: temSize(14, $rate);
+      background-position: 0 temSize(-700, $rate);
+  }
+  
+}
+
+/******************* 天宇todo *************************/
+
+// 报名弹窗
+.micro_prizeClaw_popup_join{
+    position: absolute;
+    width: temSize(516, $rate);
+    height: temSize(489, $rate);
+    padding-top:temSize(30, $rate);
+    @include absoluteCenter;
+    @include background100("../img/micro_prizeclaw_pop_bg.png");
+}
+.micro_prizeClaw_continue{
+    width: temSize(329, $rate);
+    margin: 0 auto;
+    height: temSize(32, $rate);
+    @include background100("../img/micro_prizeClaw_text_playContinue.png");
+}
+.micro_prizeClaw_popup_avator{
+    position:relative;
+    width:temSize(82, $rate);
+    margin:0 auto;
+    margin-top:temSize(24, $rate);
+    height:temSize(85, $rate);
+}
+.micro_prizeClaw_popup_avator_img{
+    border-radius:temSize(10, $rate);
+    width:100%;
+    height:100%;
+}
+.micro_prizeClaw_popup_avator_cover{
+    position:absolute;
+    top:0;
+    left:0;
+    width:temSize(82, $rate);
+    height:temSize(85, $rate);
+    @include background100("../img/micro_prizeclaw_avato_cover.png");
+}
+.micro_prizeClaw_input_unit{
+    display: block;
+    width: temSize(308, $rate);
+    margin:temSize(16, $rate) auto;
+    height: temSize(52, $rate);
+    text-align: center;
+    background: #fff;
+    color:#333;
+    font-size:temSize(20, $rate);
+    border-radius:temSize(15, $rate);
+    border: temSize(3, $rate) solid #54241a;
+    &::-webkit-input-placeholder{color:#333;}
+}
+.micro_prizeClaw_popup_term{
+    text-align: center;
+    line-height: 1;
+    margin: temSize(13, $rate) 0;
+    font-size: temSize(17, $rate);
+    color:#fff;
+}
+.micro_prizeClaw_popup_checkbox{
+    display: inline-block;
+    width: temSize(24, $rate);
+    height: temSize(24, $rate);
+    margin-right:temSize(10, $rate);
+    @include background100("../img/micro_prizeClaw_popup_uncheck.png");
+    &.checked{@include background100("../img/micro_prizeClaw_popup_checked.png");}
+}
+.micro_prizeClaw_popup_checkbox,
+.micro_prizeClaw_popup_termText{
+    vertical-align: middle;
+}
+.micro_prizeClaw_popup_join_buttons{
+    width: temSize(425, $rate);
+    margin:0 auto;
+}
+.micro_prizeClaw_btn_exit,
+.micro_prizeClaw_btn_goAhead{
+    width: temSize(186, $rate);
+    height: temSize(102, $rate);
+}
+.micro_prizeClaw_btn_exit{
+    background-position: 0 0;
+}
+.micro_prizeClaw_btn_goAhead{
+    background-position: 0 temSize(-466, $rate);
+}
+/* 帮他抽弹窗&自己抽弹窗&很遗憾弹窗*/
+.micro_prizeClaw_popup_sm,
+.micro_prizeClaw_popup_lg,
+.micro_prizeClaw_popup_regret,
+.micro_prizeClaw_popup_activity{
+    position:absolute;
+    width: temSize(417, $rate);
+    @include absoluteCenter;
+}
+.micro_prizeClaw_popup_sm,
+.micro_prizeClaw_popup_lg{
+    @include background100("../img/micro_prizeClaw_popup_lg.png");
+}
+.micro_prizeClaw_popup_sm{
+    height: temSize(485, $rate);
+    .micro_prizeClaw_congratulation_text{
+        width: temSize(121, $rate);
+        height: temSize(41, $rate);
+    }
+}
+.micro_prizeClaw_popup_lg{
+    height: temSize(536, $rate);
+    .micro_prizeClaw_congratulation_text{@include background100("../img/micro_prizeClaw_congratulation_text2.png")}
+}
+.micro_prizeClaw_popup_regret{
+    height: temSize(331, $rate);
+    @include background100("../img/micro_prizeClaw_popup_regret.png?version=2.0");
+    .micro_prizeClaw_doll,
+    .micro_prizeClaw_merry_christmas_text,
+    .micro_prizeClaw_merry_christmas_text2,
+    .micro_prizeClaw_congratulation_text,
+    .micro_prizeClaw_merry_christmas_multi_text{
+        display: none;
+    }
+    .micro_prizeClaw_popup_btn{margin-top:temSize(204, $rate);}
+}
+.micro_prizeClaw_congratulation_text{
+    width: temSize(310, $rate);
+    height: temSize(37, $rate);
+    margin:0 auto;
+    margin-top: temSize(22, $rate)!important;//恢复被reset的样式
+    @include background100("../img/micro_prizeClaw_congratulation_text.png");
+}
+.micro_prizeClaw_regret_text{
+
+    position: absolute;
+    width: temSize(285, $rate);
+    height: temSize(23, $rate);
+    top:temSize(116, $rate);
+    @include background100("../img/micro_prizeClaw_popup_regret_text.png");
+    @include absoluteCenter(center);
+}
+.micro_prizeClaw_regret_mutiText{
+
+    position: absolute;
+    width: temSize(296, $rate);
+    height: temSize(45, $rate);
+    top:temSize(116, $rate);
+    @include background100("../img/micro_prizeClaw_popup_regret_mutiText.png");
+    @include absoluteCenter(center);
+}
+.micro_prizeClaw_doll{
+    display: block;
+    margin:0 auto;
+    margin-top:temSize(38, $rate);
+    width: temSize(82, $rate);
+    height: temSize(114, $rate);
+}
+
+.micro_prizeClaw_doll.sheng{ @include background100("../img/prizeclaw_sheng.png");}
+.micro_prizeClaw_doll.dan{ @include background100("../img/prizeclaw_dan.png");}
+.micro_prizeClaw_doll.kuai{ @include background100("../img/prizeclaw_kuai.png");}
+.micro_prizeClaw_doll.le{ @include background100("../img/prizeclaw_le.png");}
+
+.micro_prizeClaw_merry_christmas_text{
+    width: temSize(359, $rate);
+    height: temSize(30, $rate);
+    margin:0 auto;
+    margin-top:temSize(28, $rate);
+    @include background100("../img/micro_prizeClaw_merry_christmas.png");
+}
+.micro_prizeClaw_merry_christmas_text2{
+    width: temSize(288, $rate);
+    margin: 0 auto;
+    margin-top: temSize(14, $rate);
+    height: temSize(43, $rate);
+    @include background100("../img/micro_prizeClaw_merry_christmas_tips.png");
+}
+.micro_prizeClaw_merry_christmas_multi_text{
+    position: relative;
+    width: temSize(382, $rate);
+    margin:0 auto;
+    margin-top:temSize(28, $rate);
+    height: temSize(72, $rate);
+    @include background100("../img/micro_prizeClaw_text_muti.png");
+}
+.micro_prizeClaw_text_sheng,
+.micro_prizeClaw_text_dan,
+.micro_prizeClaw_text_kuai,
+.micro_prizeClaw_text_le{
+    position: absolute;
+    right: 0;
+    margin-top: -1px;
+    margin-right: temSize(95, $rate);
+    width: temSize(60, $rate);
+    height: temSize(34, $rate);
+}
+.micro_prizeClaw_text_sheng{@include background100("../img/micro_prizeClaw_text_sheng.png");}
+.micro_prizeClaw_text_dan{@include background100("../img/micro_prizeClaw_text_dan.png");}
+.micro_prizeClaw_text_kuai{@include background100("../img/micro_prizeClaw_text_kuai.png");}
+.micro_prizeClaw_text_le{@include background100("../img/micro_prizeClaw_text_le.png");}
+
+.micro_prizeClaw_popup_btn{
+    display: block;
+    margin:0 auto;
+    margin-top: temSize(26, $rate);
+}
+.micro_prizeClaw_popup_btn.formalJoin{
+    width: temSize(187, $rate);
+    height: temSize(101, $rate);
+    background-position:0 temSize(-234, $rate);
+}
+.micro_prizeClaw_popup_btn.ok{
+    width: temSize(119, $rate);
+    height: temSize(101, $rate);
+    background-position:0 temSize(-700, $rate);
+}
+.micro_prizeClaw_popup_btn.join{
+    width: temSize(187, $rate);
+    height: temSize(101, $rate);
+    background-position:0 temSize(-1216, $rate);
+}
+
+// 活动详情弹窗
+.micro_prizeClaw_popup_activity{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+    flex-direction: column;
+    height: temSize(587, $rate);
+    padding: temSize(74, $rate) temSize(24, $rate) temSize(27, $rate);
+    @include background100("../img/micro_prizeClaw_popup_acvicity.png");
+    .micro_prizeClaw_popup_btn{margin-top:0;}
+}
+.micro_prizeClaw_popup_activity_content{
+    font-size: temSize(20, $rate);
+    line-height: temSize(36, $rate);
+    color:#111;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}

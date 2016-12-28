@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="" onclick="showNotice()">showNotice</button>
+    <div class="notice" onclick=""></div>
+
+
+</body>
+<script type="text/javascript">
+ setInterval(function(){
+    var noti =  Notification.requestPermission(function (perm) {  
+        if (perm == "granted") {  
+            var notification = new Notification("这是一个通知撒:", {  
+                renotify:true,
+                dir: "auto",  
+                lang: "hi",  
+                tag: "testTag"+Math.random(),  
+                icon: "https://static.cnblogs.com/images/adminlogo.gif",  
+                body: " "+Math.random()  
+            });  
+            notification.onclick =function(){
+         console.log("fdasfasdfasdfsdfa");
+         window.location.href="index.html"
+          notification.close();   
+      };
+           }
+      });
+      noti.onclick =function(){
+         console.log("fdasfasdfasdfsdfa");
+          notification.close();   
+      };
+      
+      },10000);
+    </script>
+
+</html>

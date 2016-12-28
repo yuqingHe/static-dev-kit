@@ -1,0 +1,89 @@
+﻿@charset "utf-8";
+//圣诞快乐贺卡模板
+@function temSize($num,$rate:1) {
+    @return ceil($num /40*100)/100*$rate*1rem;
+  }
+
+@mixin form-base($rate:1){
+  .poster4-step1{
+    .title{width: temSize(506,$rate);height: temSize(796,$rate); margin: 0 auto;top: temSize(0,$rate);
+      .poster4-title{font-size: temSize(30,$rate);width: temSize(284,$rate); bottom: temSize(14,$rate);margin-left: temSize(100,$rate);line-height: 1;}
+    }
+    .view-btnbox{bottom: temSize(34,$rate);width: 100%;height: temSize(94,$rate);
+      .view-btn{width: temSize(234,$rate);height: 100%;margin: 0 auto;}
+      }
+  }
+
+  .poster4-step2{
+      padding-top:temSize(118,$rate);
+    .description{width: temSize(629,$rate);height: temSize(813,$rate);margin: 0 auto;padding-top:temSize(440,$rate);font-size:temSize(24,$rate);
+    .poster4-title{font-size:100%;width:temSize(391,$rate);margin:0 auto;line-height:1.26;height:temSize(212,$rate);}}
+    .cover-box{height:temSize(276,$rate);bottom:0;}
+   .btn-box{padding: 0 temSize(50,$rate);
+        .bright-btn,.send-btn{width: temSize(244,$rate);height: temSize(108,$rate);margin: 0 auto;margin-top: temSize(142,$rate);}
+    }
+  }
+
+}
+
+
+
+ //与数值无关的样式全部写这里：
+.microposter4{width: 100%;height: 100%;background:url("../img/poster4-bg.png") $img-pozC;@include background-size100;position:relative;
+    .poster4-step1{
+      .title{background:url("../img/poster4-title-bg.png") $img-pozC;@include background-size100;position: relative;
+        .poster4-title{color: #fff;position: absolute;text-align: center;}
+      }
+    .view-btnbox{position: absolute;
+      .view-btn{background:url("../img/poster4-view-btn.png") $img-pozC;@include background-size100;}
+      }
+    }
+
+    .poster4-step2{
+     width:100%;background:url("../img/poster4-step2-bg.png") $img-pozC;@include background-size100;
+      .description{ width:100%;background:url("../img/poster4-step2-text-bg.png") $img-pozC;@include background-size100;
+
+        .poster4-title{color:#222}
+      }
+      .cover-box{width:100%;background:url("../img/poster4-step2-cover.png") $img-pozC;@include background-size100;position:absolute;z-index:100;}
+      .btn-box{display: flex;justify-content: space-between;align-items: center;
+        .bright-btn{background:url("../img/poster4-step2-button-bright.png") $img-pozC;@include background-size100;}
+        .send-btn{background:url("../img/poster4-step2-button-send.png") $img-pozC;@include background-size100;}
+        .bright-btn,.send-btn{    display: inline-block;}
+      }
+    }
+
+    .poster4-step3{
+      div{margin: 0 auto;}
+      .topbg{background:url("../img/poster4-subtitle-bg.png") $img-pozC;@include background-size100;width:temSize(393,$rate);height: temSize(205,$rate);top: temSize(35,$rate);position: relative; }
+      .namebox{background:url("../img/poster4-name-box.png") $img-pozC;@include background-size100;width:temSize(520,$rate);height: temSize(80,$rate);margin-top: temSize(57,$rate);}
+      .phonebox{background:url("../img/poster4-phone-box.png") $img-pozC;@include background-size100;width:temSize(520,$rate);height: temSize(80,$rate);margin-top: temSize(24,$rate);}
+      .contentbox{display: flex;align-items: center;padding: temSize(20,$rate);background:url("../img/poster4-info-box.png") $img-pozC;@include background-size100;width:temSize(520,$rate);height: temSize(300,$rate);margin-top: temSize(24,$rate);}
+      .btn-box{
+        .send-btn{background:url("../img/poster4-send-btn.png") $img-pozC;@include background-size100;width:temSize(234,$rate);height: temSize(94,$rate);margin-top:temSize(118,$rate)}
+      }
+      .inputtext{width: 100%;height: 100%;font-size: temSize(28,$rate);color: #222;margin: 0 auto;line-height: temSize(91,$rate);text-align: center;
+      &::-webkit-input-placeholder {color: #222; }
+      }
+      .poster4-contentbox{text-align:start;width:temSize(436,$rate);}
+      textarea::-webkit-input-placeholder{text-align:center;line-height:temSize(230,$rate);}
+      .inputarea{line-height: 1.3;overflow:hidden;}
+    }//没有编辑页
+    
+}
+
+
+
+$editrate:0.8;
+$viewrate:1;
+//编辑页面
+.microposter4{
+ @include form-base(0.8);
+}
+
+.microposter3+.poster3-footer{position: absolute;width: 100%;}
+ //仅预览页面样式写这里
+.microposter4 .preview{
+  @include form-base(1);
+  // .poster3-step1 .title .poster3-title{margin-top: temSize(295,$rate);}
+}

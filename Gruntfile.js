@@ -3,7 +3,9 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         watch: {
             scss: {
-                files: 'app/scss/**/*.scss',
+                // files: 'app/scss/**/*.scss',
+                // tasks: ['sass']
+                files: 'work/scss/**/*.scss',
                 tasks: ['sass']
             }
         },
@@ -13,7 +15,8 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'app/css/style.css': 'app/scss/bootstrap.scss'
+                    // 'app/css/style.css': 'app/scss/bootstrap.scss',
+                    'work/css/style.css': 'work/scss/ionic.app.scss'
                 }
             }
         },
@@ -21,16 +24,21 @@ module.exports = function (grunt) {
             dev: {
                 bsFiles: {
                     src: [
-                        'app/**/*.css',
-                        'app/**/*.html',
-                        'app/**/*.js'
+                        // 'app/**/*.css',
+                        // 'app/**/*.html',
+                        // 'app/**/*.js',
+                        'work/**/*.css',
+                        'work/**/*.html',
+                        'work/**/*.js'
                     ]
                 },
                 options: {
                     watchTask: true,
                     server: {
-                        baseDir: "app",
-                        index: "index2.html"
+                        // baseDir: "app",
+                        // index: "test.html"
+                        baseDir: "work",
+                        index: "index.html"
                     }
                 }
             }
@@ -39,5 +47,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-browser-sync');
-    grunt.registerTask('default', ['sass', 'browserSync', 'watch']);
+    grunt.registerTask('default', [  'browserSync', 'watch']);
+    // grunt.registerTask('default', ['browserSyncW', 'watchW']);
 };

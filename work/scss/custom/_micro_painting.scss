@@ -1,0 +1,1020 @@
+﻿/**
+* # name:画蛋模板
+* # author: tingting.weng & tianyu.chen
+* # update: 2016年11月28日11:25:39
+**/
+
+
+$editRate: 0.8;
+
+/******************* 首屏编辑公共（部分） ***********************/
+
+.micro_painting .isEdit .painting {
+    width: temSize(508, $rate);
+    height: temSize(800, $rate);
+    background-color: #2e3f32;
+    background-size: 100%;
+    color: #fff;
+    font-size: temSize(20, $rate);
+    text-align: center;
+}
+
+
+/* 样式补丁  查看排行榜*/
+/*=====================================================*/
+
+.micro_painting .preview .introduce .painting_get_greedy {
+    box-sizing: border-box;
+    border: temSize(4, $rate) dashed #fff;
+    border-radius: temSize(9, $rate);
+    width: temSize(503, $rate);
+    height: temSize(83, $rate);
+    margin: 0 auto;
+    text-align: center;
+    line-height: temSize(84, $rate);
+    margin-top: temSize(77, $rate);
+}
+
+.micro_painting .preview .introduce .painting_get_greedy_form {
+    .painting_title {
+        @include background100("../img/painting_privew_title.png");
+        position: absolute;
+        top: 0;
+        width: 16.08rem;
+        height: 3.5rem;
+        margin-top: -1.80rem;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        padding-top: 0.56rem;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+
+    padding: 0 !important;
+    height: temSize(189, $rate);
+}
+
+
+/*===================================================== */
+/*              首屏（view preview）                     */
+/*=====================================================*/
+
+
+/*.micro_painting    .painting_screen1  开始*/
+
+.micro_painting .painting_screen1 {
+    @include background100("../img/painting_first_bg.png", cover);
+    /*首屏预览页面背景*/
+    height: 100%;
+    position: relative;
+
+    .preview {
+        .painting_myUserInfo_content {
+            position: relative;
+        }
+
+        .painting_myUserInfo_content .painting_myUserInfo_avator_bg {
+            @include background100("../img/painting_myUserInfo_avator.png");
+            position: absolute;
+            left: temSize(14, $rate);
+            top: temSize(9, $rate);
+            width: temSize(83, $rate);
+            height: temSize(83, $rate);
+            z-index: 8;
+        }
+
+        .painting_myUserInfo_content .painting_myUserInfo_avator_bg .painting_myUserInfo_avator {
+            position: absolute;
+            left: temSize(10, $rate);
+            bottom: temSize(11, $rate);
+            width: temSize(63, $rate);
+            height: temSize(63, $rate);
+            border-radius: 100%;
+            box-sizing: border-box;
+            z-index: 9;
+        }
+
+        .painting_myUserInfo_content .painting_myUserInfo_name {
+            position: absolute;
+            top: temSize(32, $rate);
+            left: temSize(62, $rate);
+            width: temSize(166, $rate);
+            height: temSize(37, $rate);
+            @include background100("../img/painting_username_bg.png");
+        }
+
+
+        .painting_myUserInfo_content .painting_myUserInfo_name .painting_myUserInfo_name_content {
+            position: absolute;
+            top: temSize(0, $rate);
+            font-size: temSize(14, $rate);
+            text-align: center;
+            height: temSize(37, $rate);
+            max-width: temSize(120, $rate);
+            overflow: hidden;
+            margin: 0 auto;
+            left: 0.4rem;
+            right: 0;
+            color: #d48f79;
+        }
+
+        .painting_myUserInfo_content .painting_top_greedy {
+            position: absolute;
+            top: temSize(20, $rate);
+            left: temSize(228, $rate);
+        }
+
+        .painting_myUserInfo_content .painting_top_greedy .painting_greddy_title {
+            font-size: temSize(16, $rate);
+            color: #051608;
+        }
+
+        .painting_myUserInfo_content .painting_top_greedy .painting_greddy_content {
+            font-size: temSize(28, $rate);
+            color: #c2f2c8;
+        }
+
+        .painting_button_content {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            padding: 0 temSize(30, $rate);
+            z-index: 9;
+        }
+
+        .painting_button_content .left_button {
+            @include background100("../img/painting_accpect_prize.png?vision=1"); /*避免缓存*/
+            width: temSize(301, $rate);
+            height: temSize(118, $rate);
+        }
+
+        .painting_button_content .left_button_already {
+            @include background100("../img/painting__prize_already.png?vision=1");
+            width: temSize(301, $rate);
+            height: temSize(118, $rate);
+        }
+
+        .painting_button_content .right_button {
+            @include background100("../img/painting_egg_button.png?vision=1");
+            width: temSize(301, $rate);
+            height: temSize(118, $rate);
+        }
+
+        .painting_button_content .right_button_start {
+            @include background100("../img/painting_button_start_bg.png?vision=1");
+            width: temSize(301, $rate);
+            height: temSize(118, $rate);
+        }
+
+        .painting_button_content_repaint {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: center;
+            justify-content: space-between;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            padding: 0 temSize(30, $rate);
+            z-index: 9;
+        }
+
+        .painting_button_content_repaint .left_button {
+            @include background100("../img/painting_egg_repaint.png?vision=1");
+            width: temSize(301, $rate);
+            height: temSize(118, $rate);
+        }
+        /*//炫耀一下
+        .painting_button_content_repaint .right_button {
+            @include background100("../img/painting_accpect_prize.png?vision=3");
+            width: temSize(301, $rate);
+            height: temSize(118, $rate);
+        }*/
+        .apply_button2_outer, .replay_button_outer {
+            width: temSize(230, $rate);
+            height: temSize(115, $rate);
+            overflow: visible;
+        }
+
+        .apply_button2_outer {
+            z-index: 0;
+        }
+
+        .saveImg_button_outer {
+            width: temSize(80, $rate);
+            height: temSize(115, $rate);
+            overflow: visible;
+        }
+        //领取奖品按钮（小）
+        .apply_button2 {
+            @include background100("../img/painting_apply_button2.png?vision=3");
+            width: temSize(265, $rate);
+            height: temSize(115, $rate);
+            margin-left: temSize(-15,$rate);
+        }
+        //已领取
+        .apply_button2.applyed {
+            @include background100("../img/painting_applyed_button2.png?vision=3");
+        }
+        //重画
+        .replay_button {
+            @include background100("../img/painting_replay_button2.png?vision=3");
+            width: temSize(274, $rate);
+            height: temSize(115, $rate);
+            margin-left: temSize(-20,$rate);
+        }
+        //纪念一下
+        .saveImg_button {
+            @include background100("../img/painting_save_button.png?vision=3");
+            width: temSize(104, $rate);
+            height: temSize(118, $rate);
+            margin-left: temSize(-15,$rate);
+        }
+
+        .painting_company {
+            position: absolute;
+            top: temSize(90, $rate);
+            width: 100%;
+        }
+
+        .painting_company .painting_company_title {
+            margin: 0 auto;
+            width: temSize(388, $rate);
+            height: temSize(121, $rate);
+            @include background100("../img/painting_company_title.png", cover);
+        }
+
+        .painting_company .painting_company_content {
+            @include background100("../img/painting_company_bg.png", cover);
+            width: temSize(555, $rate);
+            margin: 0 auto;
+            height: temSize(123, $rate);
+            padding: 0 temSize(35, $rate);
+        }
+
+        .painting_company .painting_company_content .company_name {
+            font-size: temSize(30, $rate);
+            color: #caa98a;
+            text-align: center;
+            height: temSize(47, $rate);
+            line-height: temSize(47, $rate);
+        }
+
+        .painting_company .painting_company_content .company_description {
+            font-size: temSize(18, $rate);
+            color: #d0ac8d;
+            text-align: center;
+            height: temSize(70, $rate);
+            line-height: 1.3;
+        }
+
+        .painting_cutdown_mask {
+            padding-top: temSize(366, $rate);
+            position: absolute;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            -webkit-opacity: 0.5;
+            opacity: 0.5;
+        }
+
+        .painting_cutdown_mask .painting_cutdown_mask_egg {
+            background-size: 100% 100%;
+            width: temSize(310, $rate);
+            height: temSize(403, $rate);
+            margin: 0 auto;
+            margin-bottom: temSize(56, $rate);
+            position: relative;
+        }
+
+        .painting_cutdown_mask .painting_cutdown_mask_egg .painting_mask_cutdown {
+            width: temSize(100, $rate);
+            height: temSize(157, $rate);
+            position: absolute;
+            left: temSize(105, $rate);
+            top: temSize(123, $rate);
+            @include background100("../img/painting_mask_cutdown_3.png", cover);
+        }
+
+        .painting_cutdown_mask .painting_cutdown_mask_description {
+            @include background100("../img/painting_cutdown_mask_description.png", cover);
+            width: temSize(228, $rate);
+            height: temSize(41, $rate);
+            margin: 0 auto;
+        }
+
+        .micro_painting_result_grades {
+            top: temSize(372, $rate);
+            line-height: 1.3;
+            font-weight: bold;
+            color: #ff3c22;
+            text-align: left;
+
+            .result_grades_num {
+                display: inline-block;
+                font-size: temSize(30, $rate);
+                -webkit-text-stroke: 1px #fff;
+                width: temSize(96, $rate);
+                white-space: nowrap;
+                text-align: right;
+            }
+
+            .result_grades_percent {
+                -webkit-text-stroke: initial;
+            }
+
+            .result_grades_percent,
+            .result_grades_text {
+                font-size: temSize(14, $rate);
+            }
+        }
+
+        .painting_pull_down_tips {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            margin-left: temSize(20, $rate);
+            margin-bottom: temSize(160, $rate);
+            width: temSize(34, $rate);
+            height: temSize(221, $rate);
+            @include background100("../img/painting_pull_down_tips.png");
+        }
+
+        .painting_canvas_tips {
+            color: #dfbb9d;
+            position: absolute;
+            @include absoluteCenter(center);
+            top: 10rem;
+            margin-top: temSize(43, $rate);
+            margin-left: temSize(12, $rate);
+            height: temSize(41, $rate);
+            line-height: temSize(41, $rate);
+            font-size: temSize(30, $rate);
+        }
+
+        .painting_canvas_tips_icon_circle {
+            display: inline-block;
+            vertical-align: text-bottom;
+            width: temSize(74, $rate);
+            height: temSize(41, $rate);
+            @include background100("../img/painting_sm_circle.png");
+        }
+
+        .painting_score {
+            position: absolute;
+            z-index: 10;
+            right: temSize(-20, $rate);
+            top: temSize(780, $rate);
+            color: #ff131e;
+            width: temSize(273, $rate);
+            height: temSize(115, $rate);
+            padding: temSize(15, $rate);
+            transform: rotate(-15deg);
+            text-align: center;
+            line-height: .7;
+            display: table;
+            @include background100("../img/painting_chapter_big.png");
+
+            .painting_socreContent_wrap {
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            .painting_score_similar {
+                font-size: temSize(38, $rate);
+                line-height: 1;
+            }
+
+            .painting_score_defeat {
+                font-size: temSize(30, $rate);
+                line-height: 1;
+            }
+        }
+    }
+    /*首屏预览页面结束*/
+    .isEdit {
+        /*首屏编辑开始*/
+        background-image: none !important;
+        background-color: #2e3f32;
+        height: temSize(1016, $editRate);
+        color: #fff;
+        padding-top: temSize(83, $editRate);
+        position: relative;
+
+        .editBorder {
+            box-sizing: border-box;
+            border: temSize(4, $rate) dashed #fff;
+            border-radius: temSize(9, $rate);
+        }
+
+        .painting_screen1_box1,
+        .painting_screen1_box2,
+        .painting_screen1_box3,
+        .painting_screen1_box4,
+        .painting_screen1_box5,
+        .painting_screen1_box6 {
+            margin: 0 auto;
+            width: temSize(453, $editRate);
+            text-align: center;
+        }
+
+        .painting_screen1_box1 {
+            margin-bottom: temSize(15, $editRate);
+            height: temSize(60, $editRate);
+            line-height: temSize(54, $editRate);
+            font-size: temSize(20, $editRate);
+        }
+
+        .painting_screen1_box2 {
+            font-size: temSize(18, $editRate);
+            height: temSize(145, $editRate);
+            margin-bottom: temSize(15, $editRate);
+            line-height: 1.3;
+            text-align: start;
+            padding: temSize(15.2, $editRate);
+        }
+
+        .painting_screen1_box3 {
+            margin-bottom: temSize(15, $editRate);
+        }
+
+        .painting_screen1_box3 .painting_eidt_avator {
+            width: temSize(86, $rate);
+            height: temSize(86, $rate);
+            border-radius: 100%;
+        }
+
+        .painting_screen1_box4 {
+            margin-bottom: temSize(15, $editRate);
+            height: temSize(60, $editRate);
+            font-size: temSize(18, $editRate);
+            line-height: temSize(54, $editRate);
+        }
+
+        .painting_screen1_box5 {
+            margin-bottom: temSize(15, $editRate);
+            height: temSize(60, $editRate);
+            font-size: temSize(20, $editRate);
+            line-height: temSize(54, $editRate);
+        }
+
+        .painting_screen1_box6 {
+            margin-bottom: temSize(15, $editRate);
+            height: temSize(60, $editRate);
+            font-size: temSize(18, $editRate);
+            line-height: temSize(54, $editRate);
+        }
+    }
+    /*首屏编辑结束*/
+}
+
+
+/*首屏第一页结束*/
+
+//=====================================================
+//         多图上传和三图上传 （edit）
+//=====================================================
+.threePic_painting_1 {
+    background-color: #2e3f32;
+    background-size: 100%;
+
+    .vegetables_bg {
+        background-color: transparent !important;
+    }
+
+    .vegetables_box6Outer {
+        background-color: transparent !important;
+    }
+}
+
+.mulPic_painting_1 {
+    background-color: #2e3f32;
+    background-size: 100% !important;
+
+    .vegetables_bg {
+        background-image: none !important;
+
+        .vegetables_box6Outer {
+            background-image: none !important;
+            background-color: transparent !important;
+
+            .vegetables_box_3 {
+                .vegetables_title1 {
+                    font-size: 0.5rem;
+                    color: #ffffff !important;
+                }
+            }
+        }
+    }
+}
+
+
+/*===================================================== */
+/*   奖品信息、机构介绍、游戏规则、联系方式   （edit）     */
+/*=====================================================*/
+
+.micro_painting .isEdit {
+    .painting_edit_contact {
+        .painting_edit_title {
+            margin-top: 0;
+            margin-bottom: temSize(36, $rate);
+            font-size: 0.5rem;
+            margin: 0 auto;
+            width: 9.06rem;
+        }
+
+        .title,
+        .title1 {
+            text-align: center;
+            color: #fff;
+            font-size: temSize(20, $rate);
+            margin-top: temSize(63, $rate);
+        }
+
+        .title {
+            margin-bottom: temSize(26, $rate);
+        }
+
+        .title1 {
+            margin-bottom: temSize(26, $rate);
+            margin-top: temSize(63, $rate);
+        }
+
+        .painting_edit_body {
+            height: temSize(200, $rate);
+            padding: temSize(28, $rate);
+            font-size: 0.45rem;
+            width: 9.25rem;
+            text-align: start;
+            margin: 0 auto;
+        }
+    }
+
+    .editBorder {
+        box-sizing: border-box;
+        border: temSize(4, $rate) dashed #fff;
+        border-radius: temSize(9, $rate);
+    }
+
+    .introduce,
+    .painting_edit_contact {
+        width: temSize(508, $rate);
+        height: temSize(800, $rate);
+        background-color: #2e3f32;
+        background-size: 100%;
+        color: #fff;
+        font-size: temSize(20, $rate);
+        text-align: center;
+        padding-top: 1px;
+    }
+
+    .introduce {
+        .form {
+            .title {
+                margin: 0 auto;
+                font-size: temSize(20, $rate);
+                height: temSize(48, $rate);
+                height: temSize(40, $rate);
+                width: temSize(362, $rate);
+                margin-top: temSize(54, $rate);
+                margin-bottom: temSize(20, $rate);
+            }
+
+            .body {
+                padding: temSize(20, $rate);
+                text-align: left;
+
+                .body_text_content {
+                    height: temSize(200, $rate);
+                    padding: temSize(28, $rate);
+                    margin: 0 auto;
+                    font-size: temSize(18, $rate);
+                    width: temSize(370, $rate);
+                    height: temSize(584, $rate);
+                }
+
+                .body_text_content a {
+                    color: #ffca27;
+                }
+            }
+        }
+    }
+}
+
+
+/*=====================================================*/
+/*   奖品信息、机构介绍、游戏规则、联系方式 (view、preview)*/
+/*=====================================================*/
+
+.micro_painting .preview {
+    .introduce {
+        position: relative;
+        width: 100%;
+        margin-top: -1px;
+        /*解决滚动撕裂问题*/
+        background-color: #2e3f32;
+        background-size: 100%;
+        padding-top: temSize(50, $rate);
+        padding-bottom: temSize(50, $rate);
+
+        .form {
+            padding: temSize(92, $rate) temSize(60, $rate);
+            line-height: temSize(32, $rate);
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            position: relative;
+            width: temSize(583, $rate);
+            margin: 0 auto;
+            box-sizing: border-box;
+            color: #fff;
+            font-size: temSize(24, $rate);
+            background-color: #4f826b;
+            border-radius: temSize(24, $rate);
+
+            .address_text {
+                position: absolute;
+            }
+
+            .title {
+                position: absolute;
+                top: 0;
+                width: temSize(400, $rate);
+                height: temSize(91, $rate);
+                margin-top: temSize(-26, $rate);
+                @include absoluteCenter(center);
+                font-size: temSize(44, $rate);
+                color: #fff;
+                padding-top: temSize(22, $rate);
+                text-align: center;
+                text-shadow: 0px 2px 0px #110611;
+                @include background100("../img/painting_board_title_blank.png");
+            }
+
+            .body {
+                .body_text_content {
+                    height: auto;
+                    padding: 0.38rem;
+                }
+
+                .body_text_content a {
+                    color: #ffca27;
+                }
+            }
+        }
+    }
+}
+
+
+/*===================================================== */
+/*                    画蛋财富排行榜                     */
+/*=====================================================*/
+
+.micro_painting {
+    .painting_bg2 {
+        background-color: #2e3f32;
+
+        .painting_box2Outer {
+            overflow: hidden;
+            padding-bottom: temSize(20, $rate);
+            padding-top: temSize(20, $rate);
+
+            .painting_ajaxBox_nomore,
+            .painting_ajaxBox_loadmore {
+                font-size: temSize(24, $rate);
+                color: #274135;
+                text-align: center;
+                line-height: 1;
+            }
+
+            .painting_box2_1.list_box_bg {
+                background: url("../img/painting_2_bg8.png") no-repeat center bottom;
+                width: 16.08rem;
+                background-size: 100% temSize(242, $rate);
+                padding-bottom: 1rem;
+                margin: 0 auto;
+            }
+
+            .painting_box2_1 .painting_item {
+                background: url("../img/painting_2_bg4.png") repeat-y center center;
+                width: 16.08rem;
+                background-size: 100% 100%;
+                margin: 0 auto;
+            }
+
+
+
+            .painting_box2_1.list_box_bg .painting_item:nth-last-child(3) {
+                background: none;
+            }
+
+            .painting_box2_1.list {
+                margin: 0 auto;
+                color: #333;
+            }
+
+            .painting_item {
+                width: 100%;
+                height: temSize(100, $rate);
+                line-height: temSize(100, $rate);
+                margin: 0 auto;
+                padding-left: temSize(60, $rate);
+                color: #fff;
+            }
+
+            .painting_box2_1 .painting_item:last-child.first_item {
+                background: url("../img/painting_rank_2_bg5.png") no-repeat center center;
+                width: 16.08rem;
+                background-size: 100% 100%;
+                padding-top: temSize(8, $rate);
+                margin: 0 auto;
+            }
+
+            .item-ranking,
+            .item-text,
+            .item-content,
+            .item-pic {
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            .item-ranking {
+                margin: 0 temSize(32, $rate) 0 temSize(18, $rate);
+                width: temSize(64, $rate);
+                height: temSize(72, $rate);
+                line-height: temSize(72, $rate);
+                font-size: temSize(28, $rate);
+                text-align: center;
+                padding-left: temSize(4, $rate);
+            }
+
+            .item-pic {
+                margin-right: temSize(20, $rate);
+            }
+
+            .item-text {
+                font-size: temSize(24, $rate);
+
+                em {
+                    font-size: temSize(32, $rate);
+                }
+            }
+
+            .item-content {
+                width: temSize(168, $rate);
+                font-size: temSize(24, $rate);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                -o-text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .item-pic {
+                width: temSize(60, $rate);
+                height: temSize(60, $rate);
+
+                img {
+                    @include face-radius;
+                    width: 100%;
+                    height: 100%;
+                    vertical-align: top;
+                }
+            }
+
+            .painting_box2_2 {
+                width: 16.08rem;
+                height: temSize(135, $rate);
+                margin: -1px auto;
+                background: url("../img/painting_rank_2_bg1.png") $img-pozC;
+                @include background-size100;
+
+                .ranking_arrow_left {
+                    width: 0;
+                    height: 0;
+                    position: absolute;
+                    left: 0;
+                }
+
+                .ranking_arrow_right {
+                    width: 0;
+                    height: 0;
+                    position: absolute;
+                    right: 0;
+                }
+            }
+            //动态添加排名1，2，3的背景样式
+            .ranking_bg1 {
+                background: url("../img/painting_ranking_bg1.png") $img-pozC;
+                background-size: temSize(40, $rate) temSize(54, $rate);
+                color: #5d3a02;
+                font-size: temSize(24, $rate);
+            }
+
+            .ranking_bg2 {
+                background: url("../img/painting_ranking_bg2.png") $img-pozC;
+                background-size: temSize(40, $rate) temSize(54, $rate);
+                color: #5d3a02;
+                font-size: temSize(24, $rate);
+            }
+
+            .ranking_bg3 {
+                background: url("../img/painting_ranking_bg3.png") $img-pozC;
+                background-size: temSize(40, $rate) temSize(54, $rate);
+                color: #5d3a02;
+                font-size: temSize(24, $rate);
+            }
+            //第四名之后默认样式
+            .ranking_bg {
+                background: url("../img/painting_ranking_bg.png") $img-pozC;
+                background-size: temSize(40, $rate) temSize(54, $rate);
+                color: #5d3a02;
+                font-size: temSize(24, $rate);
+            }
+        }
+    }
+}
+
+//===================================================== */
+//              弹窗 edit by tianyu.chen
+//=====================================================*/
+// 我要报名弹窗
+//micro_painting_popup_join{开始
+.micro_painting_popup_join {
+    position: absolute;
+    top: temSize(164, $rate);
+    @include absoluteCenter(center);
+    width: temSize(527, $rate);
+    height: temSize(691, $rate);
+    color: #523a26;
+    background: #a67853;
+    border: temSize(8, $rate) solid #4b2a0e;
+    border-radius: temSize(30, $rate);
+
+    .popup_join_icon_close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: temSize(-105, $rate);
+        width: temSize(61, $rate);
+        height: temSize(97, $rate);
+        @include background100("../img/spellgroup_icon_close.png");
+    }
+
+    .popup_join_avator {
+        position: relative;
+        width: temSize(164, $rate);
+        margin: temSize(24, $rate) auto temSize(43, $rate);
+        height: temSize(167, $rate);
+        @include background100("../img/painting_popup_avator_bg.png");
+    }
+
+    .popup_join_avator_img {
+        position: absolute;
+        width: temSize(136, $rate);
+        height: temSize(136, $rate);
+        border-radius: 100%;
+        @include absoluteCenter;
+    }
+
+    .popup_join_text1,
+    .popup_join_text2 {
+        width: temSize(425, $rate);
+        margin: 0 auto;
+        height: temSize(88, $rate);
+        margin-bottom: temSize(12, $rate);
+        color: #fff;
+
+        input {
+            width: 100%;
+            height: 100%;
+            padding: 0 temSize(10, $rate);
+            color: #fff;
+            text-align: center;
+            font-size: temSize(24, $rate);
+        }
+
+        input::-webkit-input-placeholder {
+            color: #fff;
+        }
+    }
+
+    .popup_join_text1 {
+        @include background100("../img/painting_popup_input1.png");
+    }
+
+    .popup_join_text2 {
+        @include background100("../img/painting_popup_input2.png")
+    }
+
+    .popup_join_term {
+        text-align: right;
+        margin-bottom: temSize(28, $rate);
+        padding-right: temSize(55, $rate);
+        font-size: temSize(20, $rate);
+        color: #de9b65;
+
+        .popup_join_checkbox {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: temSize(11, $rate);
+            width: temSize(30, $rate);
+            height: temSize(30, $rate);
+            @include background100("../img/painting_checkbox0.png");
+        }
+
+        .popup_join_checkbox.checked {
+            @include background100("../img/painting_checkbox1.png")
+        }
+
+        .term_popup {
+            color: #efc6a5;
+            margin-left: temSize(10, $rate);
+        }
+    }
+
+    .popup_join_btn {
+        display: table;
+        width: temSize(278, $rate);
+        margin: 0 auto;
+        margin-bottom: temSize(8, $rate);
+        height: temSize(86, $rate);
+        @include background100("../img/painting_popup_btn_confirm.png");
+    }
+
+    .popup_join_tips {
+        width: temSize(435, $rate);
+        line-height: 1.3;
+        margin: 0 auto;
+        font-size: temSize(20, $rate);
+        color: #523a26;
+    }
+}
+//}micro_painting_popup_join结束
+// 画蛋结果弹窗
+.micro_painting_popup_grades {
+    display: table;
+    margin: 0 auto;
+    margin-top: temSize(170, $rate);
+}
+
+.micro_painting_popup_grades_img {
+    width: temSize(527, $rate);
+    height: temSize(686, $rate);
+}
+
+.micro_painting_popup_grades_text {
+    display: table;
+    margin: 0 auto;
+    color: #a13328;
+    font-size: temSize(24, $rate);
+    height: 1.8rem;
+    line-height: 1.8rem;
+    padding-top: 0.2rem;
+    position: relative;
+    left: 0.25rem;
+
+    .underline {
+        display: inline-block;
+        color: #f55848;
+        text-decoration: underline;
+        font-weight: bold;
+        height: 100%;
+        width: 2.2rem;
+        text-align: center;
+    }
+}

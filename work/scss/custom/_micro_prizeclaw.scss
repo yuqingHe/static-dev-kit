@@ -1,0 +1,127 @@
+﻿@charset "utf-8";
+@import "_micro_prizeclaw_1.scss"; //除首屏--慧娟专用（解决开发中代码冲突）
+//首屏
+
+$editRate: 0.8; /*首屏编辑*/
+$rate: 1;
+@function temSize($num, $rate: 1) {
+    @return ceil($num /40*100)/100*$rate*1rem;
+}
+/*=====================================================*/
+/*                        排行榜 by 周慧娟*/
+/*=====================================================*/
+.micro_prizeclaw{
+    height:100%;
+   .ranking_list_wrap{width:100%;font-size:temSize(20, $rate);color:#333;overflow:hidden;position:relative;}
+   .prizeclaw-rank-tip{width:temSize(29,$rate);height:temSize(105,$rate);background:url("../img/prizeclaw-rank-tip.png") $img-pozC;@include background-size100;position:absolute;right:temSize(-48,$rate);top:temSize(-48,$rate);}
+   .ranking_self,.ranking_box{border-radius: temSize(10, $rate);border:2px solid #54241a;position:relative;z-index:5;width:temSize(545, $rate);margin:0 auto;padding-top:temSize(20, $rate);background:#fff;}
+   .ranking_self{height:temSize(100, $rate);margin-bottom:temSize(10, $rate);}
+   .list_pic{display:inline-block;width:temSize(56, $rate);height:temSize(59, $rate);margin-top:temSize(5,$rate);position:relative;padding:temSize(4);
+   img{width:100%;height:100%;border-radius: temSize(5, $rate);vertical-align:top;}}
+   .ranking_item{height:temSize(70, $rate);line-height:temSize(70, $rate);padding:0 temSize(15, $rate);position:relative;color:#333;}
+   .rank_order{font-size: temSize(28, $rate);display:inline-block;height:temSize(70, $rate);line-height:temSize(70, $rate);vertical-align: top;width:temSize(40,$rate);text-align:center;}
+   .rank_name{position:absolute;top:0;height:100%;line-height:temSize(70, $rate);left:temSize(130, $rate);width:temSize(280, $rate);overflow:hidden;text-overflow: ellipsis;white-space: nowrap;}
+   .rank_count{position:absolute;top:0;height:100%;line-height:temSize(70, $rate);right:temSize(30, $rate);}
+   .ranking_box_bottom{width:temSize(121, $rate);height:temSize(44, $rate);background:url("../img/prizeclaw-more-btn.png") $img-pozC;@include background-size100;margin:temSize(5, $rate) auto temSize(10, $rate) auto;}
+   .ranking_box_nomore{width:temSize(96, $rate);height:temSize(18, $rate);background:url("../img/prizeclaw-nomore-tip2.png") $img-pozC;@include background-size100;margin:temSize(5, $rate) auto temSize(10, $rate) auto;}
+   .rank_null{width:temSize(530, $rate);height:temSize(70, $rate);background:url("../img/prizeclaw_rank_null.png") $img-pozC;@include background-size100;position:relative;margin:temSize(5,$rate) auto;}
+
+   /*=====================================================*/
+   /*                   次屏公共样式 by 周慧娟*/
+   /*=====================================================*/
+   .normal_box_bg{width:temSize(584, $rate);margin:temSize(32, $rate) auto;padding-top:temSize(30, $rate);padding-bottom:temSize(5,$rate);background:url("../img/prizeclaw-bg-middle.png")  repeat-y top center;background-size:100% auto;position:relative;}
+   .normal_box_bg_top{width:100%;height:temSize(104, $rate);position:absolute;background:url("../img/prizeclaw-bg-top.png") $img-pozC;@include background-size100;top:temSize(-10, $rate);}
+   .normal_box_bg_bottom{width:100%;height:temSize(62, $rate);position:absolute;background:url("../img/prizeclaw-bg-bottom.png") $img-pozC;@include background-size100;bottom:temSize(-12, $rate);}
+   .normal_title{width:temSize(175, $rate);height:temSize(75, $rate);line-height:temSize(75, $rate);text-align:center;background:url("../img/prizeclaw-btn-bg.png") $img-pozC;@include background-size100;position:absolute;left:50%;margin-left:temSize(-87, $rate);top:temSize(-55, $rate);z-index:10;
+   color:#fff;font-size:temSize(28, $rate);@include text-shadow-s1(#444);}
+
+   /*=====================================================    */
+   /*    奖品信息、机构介绍、游戏规则、联系方式 by 周慧娟       */
+   /*=====================================================*/
+.prizeclaw_introduce_content{
+    padding:temSize(40, $rate) temSize(18, $rate) 0;
+    line-height: temSize(32, $rate);
+}
+.mar-t-75{margin-top:temSize(75,$rate);}
+.prize_info_bg_top{width:100%;height:temSize(215, $rate);position:absolute;background:url("../img/prizeclaw-normal-bg2.jpg") $img-pozC;@include background-size100;top:0;}
+.prize_info_bg_bottom{width:100%;height:temSize(205, $rate);position:absolute;background:url("../img/prizeclaw-normal-bg3.jpg") $img-pozC;@include background-size100;bottom:0;}
+.prizeclaw_body_bg_box{width:100%;height:100%;background:url("../img/prizeclaw-normal-bg.jpg")  repeat-y top center;background-size:100% auto;overflow:hidden;position:relative;}
+.cty-img-responsive .mtb15{border:2px solid #54241a;}
+.cty-img-responsive .imgbox-upload:first-child {margin-top:temSize(-55,$rate);}
+.vegetables_box_4 .imgbox-upload:first-child {margin-top:temSize(-40,$rate);}
+.vegetables_box_4 .imgbox-upload{margin-bottom:temSize(25,$rate);}
+.body_text_content{padding-bottom:temSize(10,$rate);min-height:temSize(30,$rate);}
+.body_text_content2{background:#fff;border-radius:temSize(8,$rate);border:2px solid #54241a;color:#333;padding:temSize(30,$rate) temSize(20,$rate) temSize(10,$rate);margin-top:temSize(-40,$rate);}
+.body_text_content2 a{color:#333;}
+.prizeclaw_introduce_content,
+.prizeclaw_list_box{position: relative;margin:0 auto;color:#fff;font-size:temSize(20, $rate);
+.imgbox-upload img{border: 2px solid #54241a;padding:0 !important;}
+}
+   /*=====================================================    */
+   /*    助力清单 by 周慧娟       */
+   /*=====================================================*/
+   .power_list{min-height:temSize(520,$rate);padding-bottom:temSize(20, $rate);background:url("../img/prizeclaw-powerList-bg.jpg") repeat-y center;background-size:100% auto;position:relative;}
+   .power_list_bg{width:100%;height:temSize(292,$rate);background:url("../img/prizeclaw-powerList-bg2.png") $img-pozC;@include background-size100;position:absolute;top:temSize(220,$rate);}
+   .power_list_title{width:100%;height:temSize(70,$rate);background:url("../img/prizeclaw-powerList-title.jpg") $img-pozC;@include background-size100;margin-bottom:temSize(20,$rate);}
+   .power_list_item{color:#fff;font-size:temSize(24,$rate);height:temSize(75,$rate);padding:0 temSize(65,$rate);width:temSize(640,$rate);margin:0 auto;}
+   .power_item_content{display:inline-block;vertical-align: middle;padding-left:temSize(15,$rate);}
+   .power_item_pic{display:inline-block;vertical-align: middle;width:temSize(56,$rate);height:temSize(59,$rate);position:relative;padding:temSize(4);
+       img{width:100%;height:100%;border-radius: temSize(5,$rate);}
+   }
+   .power_item_text1{color:#fff;font-size:temSize(24,$rate);height:temSize(30,$rate);line-height:temSize(30,$rate);}
+   .power_item_name{display:inline-block;max-width:9.3em;overflow:hidden;white-space:nowrap; text-overflow:ellipsis;vertical-align: middle;margin-right:temSize(10, $rate);}
+   .power_item_text2{position:relative;width:temSize(430,$rate);font-size:temSize(20,$rate);height:temSize(30,$rate);line-height:temSize(30,$rate);
+       em{position:absolute;right:0;}}
+   .prizeclaw_ajaxBox_loadmore{ position:relative; width:temSize(120,$rate);height:temSize(43,$rate);background:url("../img/prizeclaw-more-btn2.png") $img-pozC;@include background-size100;margin:0 auto;margin-top:temSize(10,$rate);}
+   .prizeclaw_ajaxBox_nomore{position:relative;width:temSize(96,$rate);height:temSize(18,$rate);background:url("../img/prizeclaw-nomore-tip.png") $img-pozC;@include background-size100;margin:0 auto;margin-top:temSize(10,$rate);}
+
+   /*=====================================================    */
+   /*               编辑页*/
+   /*=====================================================*/
+   /******************* 编辑公共（部分） ***********************/
+.prizeclaw_prize_eidt,
+.prizeclaw_editBg_common{
+    width:100%;
+    height:temSize(800, $rate);
+    background:url("../img/prizeclaw-enroll-bg.jpg") no-repeat;
+    background-size:100% 100%;
+    color:#fff;
+    font-size: temSize(30, $editRate);
+}
+/*=====================================================    */
+/*         机构介绍、游戏规则、联系我们编辑页 by周慧娟*/
+/*=====================================================*/
+.prizeclaw_editBg_common{padding-top:1px;
+    &.edit_contact{.prizeclaw_edit_title{margin-top:0;margin-bottom:0;}.prizeclaw_edit_body{height:temSize(280, $editRate);}}
+}
+.prizeclaw_edit_title,.prizeclaw_edit_body{margin:0 auto;background:rgba(4,101,182,0.55);border-radius:temSize(10,$editRate);}
+.prizeclaw_edit_title{height:temSize(80, $editRate);line-height:temSize(80, $editRate);width: temSize(530, $editRate);margin-top: temSize(70, $editRate);margin-bottom:temSize(35, $editRate);text-align:center;}
+.prizeclaw_edit_body{text-align:left;width: temSize(530, $editRate);height: temSize(730, $editRate);padding:temSize(20,$editRate);line-height: temSize(50, $editRate);}
+.prizeclaw-edit-phone,.prizeclaw-edit-address,.prizeclaw-edit-detail{width: temSize(165, $editRate);height: temSize(43, $editRate);}
+.prizeclaw-edit-phone{background:url("../img/prizeclaw-edit-phone.png") $img-pozC;@include background-size100;margin:temSize(155,$editRate) auto temSize(25,$editRate) auto;}
+.prizeclaw-edit-address{background:url("../img/prizeclaw-edit-address.png") $img-pozC;@include background-size100;margin:temSize(80,$editRate) auto temSize(25,$editRate) auto;}
+.prizeclaw-edit-detail{background:url("../img/prizeclaw-edit-detail.png") $img-pozC;@include background-size100;margin:temSize(90,$editRate) auto temSize(50,$editRate) auto;}
+
+}
+/*=====================================================    */
+/*         多图上传和三图上传*/
+/*=====================================================*/
+.threePic_prizeclaw_1{
+    background:url("../img/prizeclaw-enroll-bg.jpg") no-repeat;
+    background-size:100% 100%;
+    .vegetables_bg{background-color:transparent !important;}
+    .vegetables_box6Outer{
+        background-color:transparent !important;
+    }
+}
+.mulPic_prizeclaw_1{
+    background:url("../img/prizeclaw-enroll-bg.jpg") no-repeat;
+    background-size:100% 100% !important;
+    .vegetables_bg{
+        background-image:none !important;
+        .vegetables_box6Outer {
+            background-image:none !important;
+        }
+    }
+}
+

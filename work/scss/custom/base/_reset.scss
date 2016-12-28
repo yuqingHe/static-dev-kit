@@ -1,0 +1,23 @@
+// reset css {*/
+html {min-height: 100%; font-size:62.5%; /* 10÷16=62.5% */font-family: sans-serif; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
+body, div, ul, ol, li, dl, dt, dd, input, button, a, img, h1, h2, h3, h4, h5, h6, p, form, pre{margin: 0;}
+ul, ol, li, dl, dt, dd, p, input, button{padding: 0;}
+body {font-family: $font-family-base; @include font-size-base;}
+*,:after,:before {@include box-sizing-base;}
+.clearfix {*zoom: 1;}
+.clearfix:before, .clearfix:after {display: table; content: ""; line-height: 0; }
+.clearfix:after {clear: both;}
+ul,li{list-style: none;}
+a{text-decoration: none;}
+em{font-style: normal;}
+img{vertical-align:middle;border:0;}
+button{overflow: visible;border: 0;outline: none; background-color: transparent;cursor: pointer;}
+input{border: 0;outline: none;}
+button,select{text-transform: none;}
+textarea{outline: none; resize: none;}
+input,button,textarea{font-family: $font-family-base;}
+input,button,select,textarea,input[disabled], select[disabled], textarea[disabled],input[readonly]:not(.cloned-text-input), textarea[readonly]:not(.cloned-text-input),select[readonly]{background: none; opacity: 1; -webkit-appearance: none;}
+.transparencyTextBox,.popup-wrap-s1 .popup-text-box,.popup-wrap-s1 .popup_textbox{background: none; opacity: 1; -webkit-appearance: none;}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button {-webkit-appearance: none;} //覆盖 input的type为number时安卓机右侧有上下箭头的样式
+
+//} reset css */

@@ -1,0 +1,26 @@
+//#
+//# author:tianyu.chen
+//# email: tainyu.chen@xiaobao100.com | cty8998@163.com
+//# description: 公共function集合，
+//# notice:要添加新function请先通知样式负责人
+//#
+//###########################################################
+
+
+
+/**
+* name：px2rem
+* description：传入px值转化为rem，默认根据iphone5s 320*568标准进行换算
+* 参数：
+* # $num:number/float
+* # $rate:number/float（缩放比例）
+**/
+
+@function temSize($num, $rate: 1) {
+    @return ceil($num /40*100)/100*$rate*1rem;
+}
+
+//定义变量与函数
+@function temSizebyEdit($num) {
+  @return ceil($num /40*100)/100*0.8rem;
+}

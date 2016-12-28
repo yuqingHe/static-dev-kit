@@ -1,0 +1,68 @@
+//#
+//# author:tianyu.chen
+//# email: tainyu.chen@xiaobao100.com | cty8998@163.com
+//# description: 公共mixin集合
+//# notice:要添加新function请先通知样式负责人
+//#
+//###########################################################
+
+
+/**
+* name：背景no-repeat-100%填充
+* description：
+* 参数：
+* # $url:string（带引号传入）
+* # $fill:default(默认100% 100%填充)；cover；contain
+**/
+
+@mixin background100($url,$fill: default) {    
+    background-image: url($url);
+    background-repeat: no-repeat;
+    @if $fill == cover{background-size: cover;}
+    @else if $fill == contain{background-size: contain;}
+    @else{background-size: 100% 100%;}
+}
+
+
+/**
+* name：定位-绝对定位居中
+* description：
+* 参数：
+* # $fill:default(水平垂直居中)；center（水平居中）；vertical-center（垂直居中）
+**/
+
+@mixin absoluteCenter($direction: default) {
+    @if $direction == center {
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    @else if $direction == vertical-center {
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    @else {
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+    }
+}
+
+/**
+* name：黑色遮罩
+* description：
+* 参数：
+* # $opacity:0~100
+**/
+@mixin mask-black($opacity: 70) {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,$opacity/100);
+    overflow: hidden;
+}
